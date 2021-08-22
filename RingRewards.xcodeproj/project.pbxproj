@@ -8,18 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		3F613DEF26D28DAA00BD013F /* RingRewardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F613DEE26D28DAA00BD013F /* RingRewardsApp.swift */; };
-		3F613DF126D28DAA00BD013F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F613DF026D28DAA00BD013F /* ContentView.swift */; };
+		3F613DF126D28DAA00BD013F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F613DF026D28DAA00BD013F /* HomeView.swift */; };
 		3F613DF326D28DAC00BD013F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F613DF226D28DAC00BD013F /* Assets.xcassets */; };
 		3F613DF626D28DAC00BD013F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F613DF526D28DAC00BD013F /* Preview Assets.xcassets */; };
+		3F73BCA926D2984A00785C97 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCA826D2984A00785C97 /* CardView.swift */; };
+		3F73BCAB26D29AFF00785C97 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCAA26D29AFF00785C97 /* HealthStore.swift */; };
+		3F73BCAD26D2AA5700785C97 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCAC26D2AA5700785C97 /* RingView.swift */; };
+		3F73BCAF26D2AB2400785C97 /* RingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCAE26D2AB2400785C97 /* RingViewModel.swift */; };
+		3F73BCB226D2ACA700785C97 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCB126D2ACA700785C97 /* SummaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F613DEB26D28DAA00BD013F /* RingRewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingRewards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F613DEE26D28DAA00BD013F /* RingRewardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingRewardsApp.swift; sourceTree = "<group>"; };
-		3F613DF026D28DAA00BD013F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3F613DF026D28DAA00BD013F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3F613DF226D28DAC00BD013F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F613DF526D28DAC00BD013F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F613DF726D28DAC00BD013F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F73BCA826D2984A00785C97 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		3F73BCAA26D29AFF00785C97 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		3F73BCAC26D2AA5700785C97 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		3F73BCAE26D2AB2400785C97 /* RingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingViewModel.swift; sourceTree = "<group>"; };
+		3F73BCB126D2ACA700785C97 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +84,7 @@
 		3F613DFD26D28DC800BD013F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3F73BCAA26D29AFF00785C97 /* HealthStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -81,7 +92,9 @@
 		3F613DFE26D28DD000BD013F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3F613DF026D28DAA00BD013F /* ContentView.swift */,
+				3F613DF026D28DAA00BD013F /* HomeView.swift */,
+				3F73BCB126D2ACA700785C97 /* SummaryView.swift */,
+				3F73BCB026D2AC8000785C97 /* SubViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -89,8 +102,18 @@
 		3F613DFF26D28DD600BD013F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				3F73BCAE26D2AB2400785C97 /* RingViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3F73BCB026D2AC8000785C97 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				3F73BCA826D2984A00785C97 /* CardView.swift */,
+				3F73BCAC26D2AA5700785C97 /* RingView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,8 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F613DF126D28DAA00BD013F /* ContentView.swift in Sources */,
+				3F73BCAD26D2AA5700785C97 /* RingView.swift in Sources */,
+				3F73BCB226D2ACA700785C97 /* SummaryView.swift in Sources */,
+				3F613DF126D28DAA00BD013F /* HomeView.swift in Sources */,
+				3F73BCAF26D2AB2400785C97 /* RingViewModel.swift in Sources */,
+				3F73BCA926D2984A00785C97 /* CardView.swift in Sources */,
 				3F613DEF26D28DAA00BD013F /* RingRewardsApp.swift in Sources */,
+				3F73BCAB26D29AFF00785C97 /* HealthStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
