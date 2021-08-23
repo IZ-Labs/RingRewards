@@ -13,6 +13,8 @@ struct Settings {
     private(set) var highBar: Double = UserDefaults.standard.double(forKey: "High Goal")
     private(set) var ipVal: String = UserDefaults.standard.string(forKey: "IP Address") ?? "198.168.0.108"
     
+    private(set) var HKAuth: Bool = false
+    
 //    init(goal: trackingGoal, low: lowBar, high: highBar, ip: ipVal){
 //        updateTrackingGoal(changeTo: trackingGoal)
 //        updateLowBar(changeTo: lowBar)
@@ -34,5 +36,9 @@ struct Settings {
     
     mutating func updateIP(changeTo newIP: String) {
         UserDefaults.standard.set(newIP, forKey: "IP Address")
+    }
+    
+    mutating func HKAuthorized() {
+        HKAuth.toggle()
     }
 }

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct GoalChoiceView: View {
-    var settings: SettingsViewModel
+    var settings: RingViewModel
     
     var body: some View {
         CardView(height: 150, content: {
-            Text("What goal do you want to track?").font(.title2).fontWeight(.bold)
+            Text("What goal do you want to track?").font(.title3).fontWeight(.bold)
             HStack(alignment: .center, spacing: 0.1, content: {
                 SettingsButton(settings: settings, title: "Move")
                 SettingsButton(settings: settings, title: "Exercise")
@@ -24,6 +24,6 @@ struct GoalChoiceView: View {
 
 struct GoalChoiceView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalChoiceView(settings: SettingsViewModel())
+        GoalChoiceView(settings: RingViewModel())
     }
 }

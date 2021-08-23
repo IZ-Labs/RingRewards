@@ -10,11 +10,13 @@ import HealthKitUI
 
 class RingViewModel: ObservableObject {
     @Published var summary: HKActivitySummary = HKActivitySummary()
+    @Published var settings = Settings()
     
-    @State var trackingGoal: String = "Move"
-    @State var lowEnd: Double = 0
-    @State var highEnd: Double = 100
-    @State private var HKAuth: Bool = false
+    @State var realTimeMetricSelection: String = UserDefaults.standard.string(forKey: "Tracking Goal") ?? "Move"
+    
+    var lowBar: Double {
+        settings.lowBar
+    }
     
     private var healthStore: HealthStore? = HealthStore()
     private var progress: Double = 0
@@ -22,7 +24,7 @@ class RingViewModel: ObservableObject {
     
     func updateRings() -> Void {
         if let healthStore = healthStore {
-            if HKAuth {
+            if settings.HKAuth {
                 healthStore.getActivitySummary(completion: {recentSummary in self.summary = recentSummary })
             } else {
                 healthStore.requestAuthorization { success in
@@ -31,15 +33,15 @@ class RingViewModel: ObservableObject {
                         healthStore.getActivitySummary(completion: {recentSummary in self.summary = recentSummary })
                     }
                 }
-                HKAuth.toggle()
+                settings.HKAuthorized()
             }
         }
         progress = getPercent()*0.01
-        numSpins = spinCalc(lowGoal: lowEnd, highGoal: highEnd)
+        numSpins = spinCalc(lowGoal: settings.lowBar, highGoal: settings.highBar)
     }
     
     func getPercent() -> Double {
-        switch trackingGoal {
+        switch settings.trackingGoal {
         case "Move":
             let activeEngBurned = round(summary.activeEnergyBurned.doubleValue(for: HKUnit.jouleUnit(with: .kilo)))
             let activeEngGoal = round(summary.activeEnergyBurnedGoal.doubleValue(for: HKUnit.jouleUnit(with: .kilo)))
@@ -79,8 +81,40 @@ class RingViewModel: ObservableObject {
         return sumSpins
     }
     
+    func isSelected(goal: String) -> Color {
+        if realTimeMetricSelection == goal{
+            return Color.white
+        } else {
+            return Color.black
+        }
+    }
+    
+    func goalChange(goal: String) {
+        realTimeMetricSelection = goal
+        settings.updateTrackingGoal(changeTo: goal)
+    }
+    
+    func rangeChange(side: String, newValue: Double){
+        if side == "lowEnd" {
+            settings.updateLowBar(changeTo: newValue)
+        } else if side == "highEnd" {
+            settings.updateHighBar(changeTo: newValue)
+        } else {
+            print("Error, no range side specified")
+        }
+    }
+    
+    func getSettingsColor (title: String) -> Color {
+        switch title {
+        case "Move": return .red
+        case "Exercise": return .green
+        case "Stand": return .blue
+        default: return .white
+        }
+    }
+    
     func getColor () -> Color {
-        switch trackingGoal {
+        switch settings.trackingGoal{
         case "Move": return .red
         case "Exercise": return .green
         case "Stand": return .blue
