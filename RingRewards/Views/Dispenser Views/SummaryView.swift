@@ -23,6 +23,8 @@ struct SummaryView: View {
                     .font(.title3)
                     .fontWeight(.semibold)
             })
+        }).onAppear(perform: {
+            ringProgress.updateRings()
         })
     }
 }

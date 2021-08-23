@@ -14,9 +14,9 @@ class HealthStore {
     var healthStore: HKHealthStore?
     var query: HKStatisticsCollectionQuery?
     
-    init(healthStore: HKHealthStore) {
+    init() {
         if HKHealthStore.isHealthDataAvailable() {
-            self.healthStore = HKHealthStore()
+            healthStore = HKHealthStore()
         }
     }
     
@@ -24,15 +24,12 @@ class HealthStore {
         let activeEnergy = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!
         let activitySummary = HKObjectType.activitySummaryType()
         
-        guard let healthStore = self.healthStore else {
-            return completion(false)
-        }
+        guard let healthStore = self.healthStore else { return completion(false) }
         
-        healthStore.requestAuthorization(toShare: [], read: [activeEnergy, activitySummary]) {
-            (success, error) in completion(success)
+        healthStore.requestAuthorization(toShare: [], read: [activeEnergy, activitySummary]) { (success, error) in
+            completion(success)
         }
     }
-    
     
     func getActivitySummary(completion: @escaping (HKActivitySummary) -> ()) {
         let calendar = Calendar.autoupdatingCurrent
@@ -43,23 +40,24 @@ class HealthStore {
         
         let query = HKActivitySummaryQuery(predicate: predicate) {
             query, summaries, error in
-            if let summary = summaries?.first {
+            if let recentSummary = summaries?.first {
                 DispatchQueue.main.async {
-                    completion(summary);
-                    print("summary sent")
+                    completion(recentSummary);
                 }
+                print("summary sent")
             } else {
                 //VALUES FOR TESTING
-                let summary = HKActivitySummary()
-                summary.activeEnergyBurned = HKQuantity(unit: HKUnit.largeCalorie(), doubleValue: 450)
-                summary.activeEnergyBurnedGoal = HKQuantity(unit: HKUnit.largeCalorie(), doubleValue: 600)
-                summary.appleExerciseTime = HKQuantity(unit: HKUnit.minute(), doubleValue: 35)
-                summary.appleExerciseTimeGoal = HKQuantity(unit: HKUnit.minute(), doubleValue: 60)
-                summary.appleStandHours = HKQuantity(unit: HKUnit.count(), doubleValue: 8)
-                summary.appleStandHoursGoal = HKQuantity(unit: HKUnit.count(), doubleValue: 12)
+                let recentSummary = HKActivitySummary()
+                recentSummary.activeEnergyBurned = HKQuantity(unit: HKUnit.largeCalorie(), doubleValue: 450)
+                recentSummary.activeEnergyBurnedGoal = HKQuantity(unit: HKUnit.largeCalorie(), doubleValue: 600)
+                recentSummary.appleExerciseTime = HKQuantity(unit: HKUnit.minute(), doubleValue: 35)
+                recentSummary.appleExerciseTimeGoal = HKQuantity(unit: HKUnit.minute(), doubleValue: 60)
+                recentSummary.appleStandHours = HKQuantity(unit: HKUnit.count(), doubleValue: 8)
+                recentSummary.appleStandHoursGoal = HKQuantity(unit: HKUnit.count(), doubleValue: 12)
                 DispatchQueue.main.async {
-                    completion(summary)
+                    completion(recentSummary)
                 }
+                print("testing values summary sent")
             }
         }
         healthStore?.execute(query)

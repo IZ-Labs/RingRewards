@@ -18,6 +18,6 @@ struct RingView: UIViewRepresentable {
     
     func updateUIView(_ uiView: HKActivityRingView, context: Context) {
         uiView.setActivitySummary(activitySummaryWrapper.summary, animated: true)
-        print("ringView updated")
+        print("ringView UI updated")
     }
 }

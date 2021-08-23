@@ -15,15 +15,21 @@ struct HomeView: View {
                 ScrollView(.vertical, showsIndicators: false){
                     VStack{
                         SummaryView()
-                        CardView(height: 150, content: {
-                            
-                        })
-                        
-                        CardView(height: 200, content: {
-                            
-                        })
                     }
                 }
+            }.tabItem {
+                Image(systemName: "hare.fill")
+                Text("Dispenser")
+            }
+            
+            ZStack{}.tabItem {
+                Image(systemName: "die.face.3.fill")
+                Text("Chance")
+            }
+            
+            SettingsView().tabItem {
+                Image(systemName: "gearshape.fill")
+                Text("Settings")
             }
         }
     }

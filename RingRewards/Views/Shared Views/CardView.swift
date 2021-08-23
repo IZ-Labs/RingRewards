@@ -17,11 +17,9 @@ struct CardView<Content: View>: View {
                 .foregroundColor(.white)
         }
         .frame(width: UIScreen.main.bounds.width*0.95, height: height, alignment: .center)
-        .background(RoundedRectangle(cornerRadius: 30
-        ).fill(Color.black))
-        .shadow(color: .black, radius: 5, x: 0.0, y: 0.0)
+        .background(RoundedRectangle(cornerRadius: 30).fill(Color.black))
+        //.shadow(color: .black, radius: 5, x: 0.0, y: 0.0)
         .padding(.all, 5.0)
-        
     }
 }
 
