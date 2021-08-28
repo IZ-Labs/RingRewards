@@ -9,7 +9,7 @@ import SwiftUI
 import HealthKitUI
 
 struct RingView: UIViewRepresentable {
-    @ObservedObject var activitySummaryWrapper: RingViewModel
+    @EnvironmentObject var activitySummaryWrapper: SettingsViewModel
     
     func makeUIView(context: Context) -> HKActivityRingView {
         let ringView = HKActivityRingView()

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct RangeChoiceView: View {
-    var settings: RingViewModel
+    @EnvironmentObject var settings: SettingsViewModel
     @State var lowRange: Double = UserDefaults.standard.double(forKey: "Low Goal")
     @State var highRange: Double = UserDefaults.standard.double(forKey: "High Goal")
     
     var body: some View {
-        CardView(height: 270, content: {
+        CardView(height: 240, content: {
             Spacer()
             Text("What values should give a reward?")
                 .font(.title3)
@@ -23,7 +23,7 @@ struct RangeChoiceView: View {
             Text("\(Int(lowRange)) to \(Int(highRange)) %")
                 .font(.title)
                 .fontWeight(.bold)
-                .frame(width: UIScreen.main.bounds.width*0.80, height: 55, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: UIScreen.main.bounds.width*0.80, height: 55, alignment: .center)
                 .background(Color("darkBlue"))
                 .cornerRadius(6)
                 .padding(5)
@@ -35,9 +35,9 @@ struct RangeChoiceView: View {
                     .padding(.all, 2.0)
                 Slider(value: $lowRange, in: 0...190, step: 10)
                     .onChange(of: lowRange, perform: { value in
-                        settings.rangeChange(side: "lowEnd", newValue: lowRange)
+                        settings.lowBar = lowRange
                     })
-                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 1.0)
+                    .padding(.all, 1.0)
                 Spacer()
             }
             HStack(spacing: 1){
@@ -48,7 +48,7 @@ struct RangeChoiceView: View {
                     .padding(.all, 2.0)
                 Slider(value: $highRange, in: 0...190, step: 10)
                     .onChange(of: highRange, perform: { value in
-                    settings.rangeChange(side: "highEnd", newValue: highRange)
+                        settings.highBar = highRange
                 })
                     .padding(.all, 1.0)
                 Spacer()
@@ -60,6 +60,6 @@ struct RangeChoiceView: View {
 
 struct RangeChoiceView_Previews: PreviewProvider {
     static var previews: some View {
-        RangeChoiceView(settings: RingViewModel())
+        RangeChoiceView()
     }
 }

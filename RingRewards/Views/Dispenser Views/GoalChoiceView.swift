@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct GoalChoiceView: View {
-    var settings: RingViewModel
+    @EnvironmentObject var settings: SettingsViewModel
+    @State var realTimeGoal = UserDefaults.standard.string(forKey: "trackingGoal") ?? "Move"
     
     var body: some View {
         CardView(height: 150, content: {
-            Text("What goal do you want to track?").font(.title3).fontWeight(.bold)
+            Text("What goal do you want to track?")
+                .font(.title3)
+                .fontWeight(.bold)
             HStack(alignment: .center, spacing: 0.1, content: {
-                SettingsButton(settings: settings, title: "Move")
-                SettingsButton(settings: settings, title: "Exercise")
-                SettingsButton(settings: settings, title: "Stand")
+                SettingsButton(title: "Move", RTGoal: $realTimeGoal)
+                SettingsButton(title: "Exercise", RTGoal: $realTimeGoal)
+                SettingsButton(title: "Stand", RTGoal: $realTimeGoal)
             })
         })
     }
@@ -24,6 +27,6 @@ struct GoalChoiceView: View {
 
 struct GoalChoiceView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalChoiceView(settings: RingViewModel())
+        GoalChoiceView()
     }
 }

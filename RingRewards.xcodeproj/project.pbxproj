@@ -17,11 +17,13 @@
 		3F73BCAF26D2AB2400785C97 /* RingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCAE26D2AB2400785C97 /* RingViewModel.swift */; };
 		3F73BCB226D2ACA700785C97 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCB126D2ACA700785C97 /* SummaryView.swift */; };
 		3F73BCB626D2CC4C00785C97 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F73BCB526D2CC4C00785C97 /* HealthKit.framework */; };
-		3F73BCB826D2D7F400785C97 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCB726D2D7F400785C97 /* Settings.swift */; };
+		3F73BCB826D2D7F400785C97 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCB726D2D7F400785C97 /* SettingsModel.swift */; };
 		3F73BCBA26D2D92D00785C97 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCB926D2D92D00785C97 /* SettingsView.swift */; };
 		3F73BCBE26D2E04200785C97 /* GoalChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCBD26D2E04200785C97 /* GoalChoiceView.swift */; };
 		3F73BCC026D2E11800785C97 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCBF26D2E11800785C97 /* SettingsButton.swift */; };
 		3F73BCC426D3332800785C97 /* RangeChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73BCC326D3332800785C97 /* RangeChoiceView.swift */; };
+		3F8835CC26D9B99E005C4B31 /* IPChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8835CB26D9B99E005C4B31 /* IPChoiceView.swift */; };
+		3F8835CE26D9D4C4005C4B31 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8835CD26D9D4C4005C4B31 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,11 +40,13 @@
 		3F73BCB126D2ACA700785C97 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		3F73BCB326D2CC4B00785C97 /* RingRewards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RingRewards.entitlements; sourceTree = "<group>"; };
 		3F73BCB526D2CC4C00785C97 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		3F73BCB726D2D7F400785C97 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		3F73BCB726D2D7F400785C97 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		3F73BCB926D2D92D00785C97 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3F73BCBD26D2E04200785C97 /* GoalChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalChoiceView.swift; path = "RingRewards/Views/Dispenser Views/GoalChoiceView.swift"; sourceTree = SOURCE_ROOT; };
 		3F73BCBF26D2E11800785C97 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		3F73BCC326D3332800785C97 /* RangeChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeChoiceView.swift; sourceTree = "<group>"; };
+		3F8835CB26D9B99E005C4B31 /* IPChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPChoiceView.swift; sourceTree = "<group>"; };
+		3F8835CD26D9D4C4005C4B31 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				3F73BCAA26D29AFF00785C97 /* HealthStore.swift */,
-				3F73BCB726D2D7F400785C97 /* Settings.swift */,
+				3F73BCB726D2D7F400785C97 /* SettingsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -120,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				3F73BCAE26D2AB2400785C97 /* RingViewModel.swift */,
+				3F8835CD26D9D4C4005C4B31 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 				3F73BCB926D2D92D00785C97 /* SettingsView.swift */,
 				3F73BCBD26D2E04200785C97 /* GoalChoiceView.swift */,
 				3F73BCC326D3332800785C97 /* RangeChoiceView.swift */,
+				3F8835CB26D9B99E005C4B31 /* IPChoiceView.swift */,
 				3F73BCBF26D2E11800785C97 /* SettingsButton.swift */,
 			);
 			path = "Settings Views";
@@ -230,7 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F73BCB826D2D7F400785C97 /* Settings.swift in Sources */,
+				3F73BCB826D2D7F400785C97 /* SettingsModel.swift in Sources */,
 				3F73BCAD26D2AA5700785C97 /* RingView.swift in Sources */,
 				3F73BCB226D2ACA700785C97 /* SummaryView.swift in Sources */,
 				3F73BCC426D3332800785C97 /* RangeChoiceView.swift in Sources */,
@@ -242,6 +248,8 @@
 				3F73BCBE26D2E04200785C97 /* GoalChoiceView.swift in Sources */,
 				3F73BCC026D2E11800785C97 /* SettingsButton.swift in Sources */,
 				3F73BCAB26D29AFF00785C97 /* HealthStore.swift in Sources */,
+				3F8835CC26D9B99E005C4B31 /* IPChoiceView.swift in Sources */,
+				3F8835CE26D9D4C4005C4B31 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject var settings = SettingsViewModel()
+    
     var body: some View {
         TabView(){
             ZStack{
@@ -32,6 +34,7 @@ struct HomeView: View {
                 Text("Settings")
             }
         }
+        .environmentObject(settings)
     }
 }
 

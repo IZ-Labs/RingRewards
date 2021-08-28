@@ -6,25 +6,30 @@
 //
 
 import SwiftUI
+import HealthKit
 
 struct SummaryView: View {
-    @StateObject private var ringProgress: RingViewModel = RingViewModel()
+    @EnvironmentObject var settings: SettingsViewModel
     
     var body: some View {
         CardView(height: 280, content: {
-            Text("Today's Progress").font(.largeTitle).fontWeight(.bold)
-            RingView(activitySummaryWrapper: ringProgress).frame(width: 125, height: 125, alignment: .center).padding(.all, 10)
+            Text("Today's Progress")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            RingView()
+                .frame(width: 125, height: 125, alignment: .center)
+                .padding(.all, 10)
             HStack(alignment: .firstTextBaseline, spacing: 0.1, content: {
                 Text("Currently: ")
                     .font(.title3)
                     .fontWeight(.semibold)
-                Text("\(String(format: "%.1f", ringProgress.getPercent())) %")
-                    .foregroundColor(ringProgress.getColor())
+                Text("\(String(format: "%.1f", settings.getPercent())) %")
+                    .foregroundColor(settings.goalColor)
                     .font(.title3)
                     .fontWeight(.semibold)
             })
         }).onAppear(perform: {
-            ringProgress.updateRings()
+            settings.updateRings()
         })
     }
 }

@@ -8,30 +8,46 @@
 import SwiftUI
 
 struct SettingsButton: View {
-    var settings: RingViewModel
+    @EnvironmentObject var settings: SettingsViewModel
     var title: String
-    @State var realTimeGoal: String = UserDefaults.standard.string(forKey: "Tracking Goal") ?? "Move"
+    @Binding var RTGoal: String
     
     var body: some View {
         Button(action: {
-            realTimeGoal = title
-            settings.goalChange(goal: title)
+            RTGoal = title
+            settings.trackingGoal = title
+            print("Settings button for \(title) clicked")
         }, label: {
             ZStack{
-                RoundedRectangle(cornerRadius: 10).frame(width: 100, height: 55, alignment: .center).foregroundColor(settings.getSettingsColor(title: title))
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke((realTimeGoal==title ? Color.white : Color.black), lineWidth: 2))
-                    //MARK: - The above code results in two of the buttons being "selected" at once. Still needs to be fixed
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width: 100, height: 55, alignment: .center)
+                    .foregroundColor(settings.getSettingsColor(title: title))
+                    .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(goalTrack(goal: title), lineWidth: 2))
                     .padding(.all, 3)
                 Text(title)
                     .font(.title3)
-                    .fontWeight(.semibold).foregroundColor(.white)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
             }
         })
+    }
+    
+    func goalTrack(goal: String) -> Color {
+        if RTGoal == goal{
+            return Color.white
+        }
+        else{
+            return Color.black
+        }
     }
 }
 
 struct SettingsButton_Previews: PreviewProvider {
+    @State static var testString = "Exercise"
+    @ObservedObject static var testSettings = SettingsViewModel()
+    
     static var previews: some View {
-        SettingsButton(settings: RingViewModel(), title: "Exercise")
+        SettingsButton(title: "Exercise", RTGoal: $testString)
     }
 }
