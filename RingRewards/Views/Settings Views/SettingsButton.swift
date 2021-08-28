@@ -16,7 +16,6 @@ struct SettingsButton: View {
         Button(action: {
             RTGoal = title
             settings.trackingGoal = title
-            print("Settings button for \(title) clicked")
         }, label: {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RangeChoiceView: View {
     @EnvironmentObject var settings: SettingsViewModel
-    @State var lowRange: Double = UserDefaults.standard.double(forKey: "Low Goal")
-    @State var highRange: Double = UserDefaults.standard.double(forKey: "High Goal")
+    @State var lowRange: Double = UserDefaults.standard.double(forKey: "lowBar")
+    @State var highRange: Double = UserDefaults.standard.double(forKey: "highBar")
     
     var body: some View {
         CardView(height: 240, content: {

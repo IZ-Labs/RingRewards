@@ -12,7 +12,7 @@ class SettingsModel {
     var trackingGoal: String {
             didSet {
                 UserDefaults.standard.set(trackingGoal, forKey: "trackingGoal")
-                print("\(trackingGoal) set as new goal in SettingsModel")
+                print("set \(trackingGoal) as trackingGoal")
             }
         }
     

@@ -17,9 +17,7 @@ class SettingsViewModel: ObservableObject {
     
     var trackingGoal: String {
         get { settings.trackingGoal }
-        set { settings.trackingGoal = newValue
-            print("set \(newValue) as trackingGoal")
-        }
+        set { settings.trackingGoal = newValue }
     }
     
     var lowBar: Double {

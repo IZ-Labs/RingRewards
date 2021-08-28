@@ -15,8 +15,12 @@ struct HomeView: View {
             ZStack{
                 LinearGradient(gradient: Gradient(colors: [Color("darkBlue"), Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
                 ScrollView(.vertical, showsIndicators: false){
+                    PullToRefresh(coordinateSpaceName: "pullToRefresh", onRefresh: {
+                        settings.updateRings()
+                    })
                     VStack{
                         SummaryView()
+                            .onAppear(perform: { settings.updateRings() })
                     }
                 }
             }.tabItem {
@@ -24,7 +28,9 @@ struct HomeView: View {
                 Text("Dispenser")
             }
             
-            ZStack{}.tabItem {
+            ZStack{
+                Text("Coming Soon")
+            }.tabItem {
                 Image(systemName: "die.face.3.fill")
                 Text("Chance")
             }
@@ -35,6 +41,7 @@ struct HomeView: View {
             }
         }
         .environmentObject(settings)
+        .coordinateSpace(name: "pullToRefresh")
     }
 }
 
