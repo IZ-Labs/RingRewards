@@ -20,6 +20,11 @@ class SettingsViewModel: ObservableObject {
         set { settings.trackingGoal = newValue }
     }
     
+    var numSpins: Int {
+        get { settings.numSpins }
+        set { settings.numSpins = newValue }
+    }
+    
     var lowBar: Double {
         get { Double(settings.lowBar) }
         set { settings.lowBar = Double(newValue) }
@@ -71,8 +76,6 @@ class SettingsViewModel: ObservableObject {
                 HKAuth.toggle()
             }
         }
-//        progress = getPercent()*0.01
-//        numSpins = spinCalc(lowGoal: settings., highGoal: settings.highBar)
     }
     
     func getPercent() -> Double {

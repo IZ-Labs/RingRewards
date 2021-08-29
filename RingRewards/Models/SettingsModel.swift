@@ -10,45 +10,53 @@ import SwiftUI
 
 class SettingsModel {
     var trackingGoal: String {
-            didSet {
-                UserDefaults.standard.set(trackingGoal, forKey: "trackingGoal")
-                print("set \(trackingGoal) as trackingGoal")
-            }
+        didSet {
+            UserDefaults.standard.set(trackingGoal, forKey: "trackingGoal")
+            print("set \(trackingGoal) as trackingGoal")
         }
+    }
+    
+    var numSpins: Int {
+        didSet {
+            UserDefaults.standard.set(numSpins, forKey: "numSpins")
+        }
+    }
     
     var lowBar: Double {
-            didSet {
-                UserDefaults.standard.set(lowBar, forKey: "lowBar")
-            }
+        didSet {
+            UserDefaults.standard.set(lowBar, forKey: "lowBar")
         }
+    }
     
     var highBar: Double {
-            didSet {
-                UserDefaults.standard.set(highBar, forKey: "highBar")
-            }
+        didSet {
+            UserDefaults.standard.set(highBar, forKey: "highBar")
         }
+    }
     
     var ipVal: String {
-            didSet {
-                UserDefaults.standard.set(ipVal, forKey: "ipVal")
-            }
+        didSet {
+            UserDefaults.standard.set(ipVal, forKey: "ipVal")
         }
+    }
     
     var HKAuth: Bool {
-            didSet {
-                UserDefaults.standard.set(HKAuth, forKey: "HKAuth")
-            }
+        didSet {
+            UserDefaults.standard.set(HKAuth, forKey: "HKAuth")
         }
+    }
     
     init() {
         UserDefaults.standard.register(defaults: [
             "trackingGoal" : "Move",
-            "lowBar" : 0,
+            "numSpins" : 0,
+            "lowBar" : 50,
             "highBar" : 100,
             "ipVal" : "198.168.0.108",
             "HKAuth" : false
         ])
         trackingGoal = UserDefaults.standard.string(forKey: "trackingGoal")!
+        numSpins = UserDefaults.standard.integer(forKey: "numSpins")
         lowBar = UserDefaults.standard.double(forKey: "lowBar")
         highBar = UserDefaults.standard.double(forKey: "highBar")
         ipVal = UserDefaults.standard.string(forKey: "ipVal")!

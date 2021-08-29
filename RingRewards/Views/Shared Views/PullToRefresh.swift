@@ -34,11 +34,11 @@ struct PullToRefresh: View {
                 if needRefresh {
                     ProgressView()
                 } else {
-                    Text("⬇️ to refresh")
+                    Text("pull to refresh")
                         .foregroundColor(.white)
                 }
                 Spacer()
             }
-        }.padding(.top, -65)
+        }.padding(.top, -60)
     }
 }
