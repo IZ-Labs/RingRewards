@@ -20,8 +20,13 @@ class SpinViewModel: ObservableObject {
         set { spinTracker.numPossibleSpins = newValue }
     }
     
+    var dailyResetTime: Date {
+        get { spinTracker.dailyResetTime }
+        set { spinTracker.dailyResetTime = newValue }
+    }
+    
     func isResetRequired() -> Bool {
-        if let diff = Calendar.current.dateComponents([.day, .hour], from: spinTracker.dailyResetTime, to: Date()).hour, diff > 24 {
+        if let diff = Calendar.current.dateComponents([.hour], from: dailyResetTime, to: Date()).hour, diff > 24 {
             resetDailySpins()
             return true
         } else {
@@ -30,6 +35,7 @@ class SpinViewModel: ObservableObject {
     }
     
     func resetDailySpins() {
+        dailyResetTime = Calendar.current.startOfDay(for: Date())
         numPossibleSpins = 3
         numUserSpins = 0
     }

@@ -18,7 +18,7 @@ struct HomeView: View {
                 Image(systemName: "hare.fill")
                 Text("Dispenser")}
             
-            ZStack{ Text("Coming Soon") }
+            resetTestView()
                 .tabItem {
                 Image(systemName: "die.face.3.fill")
                 Text("Chance")

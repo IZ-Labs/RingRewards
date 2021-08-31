@@ -15,18 +15,13 @@ struct SpinTrackerView: View {
     var body: some View {
         CardView(height: 80, content: {
             HStack {
-                Text("# of Avaliable Spins: ")
+                Text("# of Avaliable Rewards: ")
                     .font(.title3)
                     .fontWeight(.bold)
                 Text("\(spinTracker.numUserSpins)")
-                    .font(.title)
+                    .font(.largeTitle)
                     .fontWeight(.bold)
-                    .foregroundColor(settings.goalColor)
-                //DEBUGGING
-                Text("\(spinTracker.numPossibleSpins)")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.purple)
+                    .foregroundColor(Color.orange)
             }
         })
     }

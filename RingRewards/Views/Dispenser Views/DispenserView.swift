@@ -29,32 +29,6 @@ struct DispenserView: View {
                         .onAppear(perform: {
                             print("Daily total reset: \(spinTracker.isResetRequired())")
                         })
-                    
-                    //DEBUGG ZONE
-                    HStack {
-                        Button(action: {spinTracker.numPossibleSpins = 3}, label: {
-                            Text("Santa")
-                                .frame(width: 150, height: 55, alignment: .center)
-                                .foregroundColor(Color.white)
-                                .background(Color.red)
-                                .font(.system(size: 20, weight: .bold))
-                                .cornerRadius(10)
-                                .padding()
-                        })
-                        Button(action: {spinTracker.numPossibleSpins = 0
-                            spinTracker.numUserSpins = 0
-                        }, label: {
-                            Text("Grinch")
-                                .frame(width: 150, height: 55, alignment: .center)
-                                .foregroundColor(Color.white)
-                                .background(Color.green)
-                                .font(.system(size: 20, weight: .bold))
-                                .cornerRadius(10)
-                                .padding()
-                            
-                        })
-                    }
-                    //END DEGBBUG ZONE
                 }
             }
         }
@@ -65,5 +39,7 @@ struct DispenserView: View {
 struct DispenserView_Previews: PreviewProvider {
     static var previews: some View {
         DispenserView()
+            .environmentObject(SettingsViewModel())
+            .environmentObject(SpinViewModel())
     }
 }
