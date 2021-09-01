@@ -21,7 +21,7 @@ struct HomeView: View {
             resetTestView()
                 .tabItem {
                 Image(systemName: "die.face.3.fill")
-                Text("Chance")
+                Text("Debugging")
             }
             
             SettingsView()

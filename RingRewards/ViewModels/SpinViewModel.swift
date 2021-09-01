@@ -47,6 +47,8 @@ class SpinViewModel: ObservableObject {
     }
     
     func spin(spins: Int, settings: SettingsViewModel){
+        // Currently this is setup to always send 1 spin at a time. If functionality is added to send multiple spins at once
+        // the logic for this section should be ammended to avoid negative values.
         if numUserSpins > 0 {
             numUserSpins -= spins
             let url = URL(string: "http:\(settings.ipVal)/setSpins?count=\(spins)")!
