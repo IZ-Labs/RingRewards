@@ -46,6 +46,7 @@ struct CandyControlView: View {
                 Button(action: {
                     spinTracker.spin(spins: 1, settings: settings)
                     spinTracker.refreshTasks(settings: settings)
+                    hasClicked.toggle()
                 }, label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)

@@ -22,11 +22,11 @@ struct IPChoiceView: View {
                 settings.ipVal = ipVal
             })
             .font(.system(size: 20, weight: .bold, design: .default))
-            .frame(width: 300, height: 50, alignment: .center)
+            .frame(width: UIScreen.main.bounds.width*0.80, height: 55, alignment: .center)
             .foregroundColor(.white)
             .background(Color("darkBlue"))
             .cornerRadius(10)
-            .padding()
+            .padding(5)
             .multilineTextAlignment(.center)
         })
     }
@@ -35,5 +35,6 @@ struct IPChoiceView: View {
 struct IPChoiceView_Previews: PreviewProvider {
     static var previews: some View {
         IPChoiceView()
+            .environmentObject(SettingsViewModel())
     }
 }

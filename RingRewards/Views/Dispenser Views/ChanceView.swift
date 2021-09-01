@@ -16,7 +16,7 @@ struct ChanceView: View {
             LinearGradient(gradient: Gradient(colors: [Color("darkBlue"), Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
             ScrollView(.vertical, showsIndicators: false){
                 VStack{
-                    Text("Chance").font(.system(size: 38, weight: .bold, design: .default)).foregroundColor(.white).frame(width: UIScreen.main.bounds.width*0.90, height: 100, alignment: .leading)
+                    Text("Chance").font(.system(size: 38, weight: .bold, design: .default)).foregroundColor(.white).frame(width: UIScreen.main.bounds.width*0.90, height: 80, alignment: .leading)
                 }
             }
         }

@@ -16,7 +16,7 @@ struct GoalChoiceView: View {
             Text("What goal do you want to track?")
                 .font(.title3)
                 .fontWeight(.bold)
-            HStack(alignment: .center, spacing: 0.1, content: {
+            HStack(alignment: .center, spacing: 8, content: {
                 SettingsButton(title: "Move", RTGoal: $realTimeGoal)
                 SettingsButton(title: "Exercise", RTGoal: $realTimeGoal)
                 SettingsButton(title: "Stand", RTGoal: $realTimeGoal)
@@ -28,5 +28,6 @@ struct GoalChoiceView: View {
 struct GoalChoiceView_Previews: PreviewProvider {
     static var previews: some View {
         GoalChoiceView()
+            .environmentObject(SettingsViewModel())
     }
 }

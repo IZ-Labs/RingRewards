@@ -13,19 +13,19 @@ struct RangeChoiceView: View {
     @State var highRange: Double = UserDefaults.standard.double(forKey: "highBar")
     
     var body: some View {
-        CardView(height: 240, content: {
-            Spacer()
+        CardView(height: 230, content: {
             Text("What values should give a reward?")
                 .font(.title3)
                 .fontWeight(.bold)
                 .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.center)
-            Text("\(Int(lowRange)) to \(Int(highRange)) %")
+            Text("\(Int(lowRange)) to \(Int(highRange))%")
                 .font(.title)
-                .fontWeight(.bold)
+                .fontWeight(.medium)
+                .foregroundColor(Color.white)
                 .frame(width: UIScreen.main.bounds.width*0.80, height: 55, alignment: .center)
                 .background(Color("darkBlue"))
-                .cornerRadius(6)
+                .cornerRadius(10)
                 .padding(5)
             HStack{
                 Spacer()
@@ -39,8 +39,8 @@ struct RangeChoiceView: View {
                     })
                     .padding(.all, 1.0)
                 Spacer()
-            }
-            HStack(spacing: 1){
+            }.frame(width: UIScreen.main.bounds.width*0.9, height: 40, alignment: .center)
+            HStack{
                 Spacer()
                 Text("High-end Cutoff")
                     .font(.footnote)
@@ -53,7 +53,7 @@ struct RangeChoiceView: View {
                     .padding(.all, 1.0)
                 Spacer()
             }
-            Spacer()
+            .frame(width: UIScreen.main.bounds.width*0.9, height: 35, alignment: .center)
         })
     }
 }
@@ -61,5 +61,6 @@ struct RangeChoiceView: View {
 struct RangeChoiceView_Previews: PreviewProvider {
     static var previews: some View {
         RangeChoiceView()
+            .environmentObject(SettingsViewModel())
     }
 }

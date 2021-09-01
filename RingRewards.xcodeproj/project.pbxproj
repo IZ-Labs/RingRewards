@@ -215,6 +215,8 @@
 			dependencies = (
 			);
 			name = RingRewards;
+			packageProductDependencies = (
+			);
 			productName = RingRewards;
 			productReference = 3F613DEB26D28DAA00BD013F /* RingRewards.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +244,8 @@
 				Base,
 			);
 			mainGroup = 3F613DE226D28DAA00BD013F;
+			packageReferences = (
+			);
 			productRefGroup = 3F613DEC26D28DAA00BD013F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

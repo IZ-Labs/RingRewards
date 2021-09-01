@@ -19,7 +19,7 @@ struct SettingsButton: View {
         }, label: {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 100, height: 55, alignment: .center)
+                    .frame(width: UIScreen.main.bounds.width*0.25, height: 55, alignment: .center)
                     .foregroundColor(settings.getSettingsColor(title: title))
                     .overlay(RoundedRectangle(cornerRadius: 10)
                                 .stroke(goalTrack(goal: title), lineWidth: 2))
@@ -44,9 +44,8 @@ struct SettingsButton: View {
 
 struct SettingsButton_Previews: PreviewProvider {
     @State static var testString = "Exercise"
-    @ObservedObject static var testSettings = SettingsViewModel()
     
     static var previews: some View {
-        SettingsButton(title: "Exercise", RTGoal: $testString)
+        SettingsButton(title: "Exercise", RTGoal: $testString).environmentObject(SettingsViewModel())
     }
 }
