@@ -51,14 +51,14 @@ class SpinViewModel: ObservableObject {
         // the logic for this section should be ammended to avoid negative values.
         if numUserSpins > 0 {
             numUserSpins -= spins
-            let url = URL(string: "http:\(settings.ipVal)/setSpins?count=\(spins)")!
+            
+            let url = URL(string: "http://\(settings.ipVal)/setSpins?count=\(spins)")!
             let session = URLSession.shared
-            let request = URLRequest(url: url)
-            let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-                                            guard error == nil else {
-                                                print("network error")
-                                                return
-                                            }})
+            let task = session.dataTask(with: url, completionHandler: { data, response, error in
+                //print(data)
+                print(response ?? "ERROR - No Response Recieved")
+                //print(error)
+            })
             task.resume()
         }
     }

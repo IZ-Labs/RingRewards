@@ -11,6 +11,7 @@ import HealthKit
 struct CandyControlView: View {
     @EnvironmentObject var settings: SettingsViewModel
     @EnvironmentObject var spinTracker: SpinViewModel
+    @State private var hasClicked: Bool = false
     
     var body: some View {
         CardView(height: 275, content: {
@@ -22,7 +23,7 @@ struct CandyControlView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 130, height: 130, alignment: .center)
-                    Text("Keep Moving and Try Again Later")
+                    Text("Keep moving and try again later")
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
@@ -32,19 +33,19 @@ struct CandyControlView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 110, height: 110, alignment: .center)
-                    Text("All Rewards Redeemed Today!\n Try Again Tomorrow!")
+                    Text("All rewards redeemed today!\n Try again tomorrow!")
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                 }
             case 1...3:
-                Text("Congrats!\n You've Earned a Reward!")
+                Text("Congrats!\n You've earned a reward!")
                     .font(.title2)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                 Button(action: {
                     spinTracker.spin(spins: 1, settings: settings)
-                    spinTracker.spinCalc(settings: settings)
+                    spinTracker.refreshTasks(settings: settings)
                 }, label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
@@ -53,14 +54,14 @@ struct CandyControlView: View {
                             .overlay(RoundedRectangle(cornerRadius: 10)
                                         .stroke(Color.white, lineWidth: 2))
                             .padding(.all, 3)
-                        Text("Click to Redeem")
+                        Text("Click to redeem")
                             .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                     }
                 })
             default:
-                Text("Error - You Shouldn't Be Here")
+                Text("Error - You shouldn't be here")
             }
         })
     }

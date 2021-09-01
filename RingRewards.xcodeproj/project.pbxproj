@@ -30,6 +30,8 @@
 		3F8835DA26DBE531005C4B31 /* SpinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8835D926DBE531005C4B31 /* SpinViewModel.swift */; };
 		3F8835DC26DC3C06005C4B31 /* DispenserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8835DB26DC3C06005C4B31 /* DispenserView.swift */; };
 		3F8835DE26DD80DF005C4B31 /* resetTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8835DD26DD80DF005C4B31 /* resetTestView.swift */; };
+		3F8835E126DF0AA7005C4B31 /* ChanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8835E026DF0AA7005C4B31 /* ChanceView.swift */; };
+		3F8835E326DF0B95005C4B31 /* ChanceTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8835E226DF0B95005C4B31 /* ChanceTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		3F8835D926DBE531005C4B31 /* SpinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinViewModel.swift; sourceTree = "<group>"; };
 		3F8835DB26DC3C06005C4B31 /* DispenserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenserView.swift; sourceTree = "<group>"; };
 		3F8835DD26DD80DF005C4B31 /* resetTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resetTestView.swift; sourceTree = "<group>"; };
+		3F8835E026DF0AA7005C4B31 /* ChanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChanceView.swift; path = "RingRewards/Views/Dispenser Views/ChanceView.swift"; sourceTree = SOURCE_ROOT; };
+		3F8835E226DF0B95005C4B31 /* ChanceTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChanceTextView.swift; path = "RingRewards/Views/Dispenser Views/ChanceTextView.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 				3F613DF026D28DAA00BD013F /* HomeView.swift */,
 				3F8835DD26DD80DF005C4B31 /* resetTestView.swift */,
 				3F73BCBB26D2DFDE00785C97 /* Dispenser Views */,
+				3F8835DF26DF0A5A005C4B31 /* Chance Views */,
 				3F73BCBC26D2DFEC00785C97 /* Settings Views */,
 				3F73BCB026D2AC8000785C97 /* Shared Views */,
 			);
@@ -183,6 +188,15 @@
 				3F73BCBF26D2E11800785C97 /* SettingsButton.swift */,
 			);
 			path = "Settings Views";
+			sourceTree = "<group>";
+		};
+		3F8835DF26DF0A5A005C4B31 /* Chance Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F8835E026DF0AA7005C4B31 /* ChanceView.swift */,
+				3F8835E226DF0B95005C4B31 /* ChanceTextView.swift */,
+			);
+			path = "Chance Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,11 +275,13 @@
 				3F8835D226DAF18A005C4B31 /* SpinTrackerView.swift in Sources */,
 				3F73BCC426D3332800785C97 /* RangeChoiceView.swift in Sources */,
 				3F73BCBA26D2D92D00785C97 /* SettingsView.swift in Sources */,
+				3F8835E126DF0AA7005C4B31 /* ChanceView.swift in Sources */,
 				3F613DF126D28DAA00BD013F /* HomeView.swift in Sources */,
 				3F8835D626DB3E3C005C4B31 /* SpinModel.swift in Sources */,
 				3F73BCA926D2984A00785C97 /* CardView.swift in Sources */,
 				3F613DEF26D28DAA00BD013F /* RingRewardsApp.swift in Sources */,
 				3F73BCBE26D2E04200785C97 /* GoalChoiceView.swift in Sources */,
+				3F8835E326DF0B95005C4B31 /* ChanceTextView.swift in Sources */,
 				3F8835DE26DD80DF005C4B31 /* resetTestView.swift in Sources */,
 				3F73BCC026D2E11800785C97 /* SettingsButton.swift in Sources */,
 				3F73BCAB26D29AFF00785C97 /* HealthStore.swift in Sources */,
