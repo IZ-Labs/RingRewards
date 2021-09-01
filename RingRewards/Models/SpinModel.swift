@@ -16,7 +16,7 @@ class SpinModel {
     
     var numPossibleSpins: Int {
         didSet {
-            UserDefaults.standard.set(numUserSpins, forKey: "numPossibleSpins")
+            UserDefaults.standard.set(numPossibleSpins, forKey: "numPossibleSpins")
         }
     }
     

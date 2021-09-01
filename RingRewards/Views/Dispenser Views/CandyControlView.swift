@@ -17,12 +17,12 @@ struct CandyControlView: View {
             switch spinTracker.numUserSpins {
             case 0:
                 if spinTracker.numPossibleSpins != 0 {
-                    Image(systemName: "exclamationmark.triangle.fill")
+                    Image(systemName: "sunrise.fill")
                         .renderingMode(.original)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 130, height: 130, alignment: .center)
-                    Text("Get Moving and Try Again Later")
+                    Text("Keep Moving and Try Again Later")
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
@@ -31,7 +31,7 @@ struct CandyControlView: View {
                         .renderingMode(.original)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 110, height: 110, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 110, height: 110, alignment: .center)
                     Text("All Rewards Redeemed Today!\n Try Again Tomorrow!")
                         .font(.title2)
                         .fontWeight(.bold)

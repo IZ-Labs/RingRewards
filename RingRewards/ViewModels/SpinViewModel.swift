@@ -25,7 +25,13 @@ class SpinViewModel: ObservableObject {
         set { spinTracker.dailyResetTime = newValue }
     }
     
-    func isResetRequired() -> Bool {
+    func refreshTasks(settings: SettingsViewModel) {
+        settings.updateRings()
+        print("Daily total reset: \(resetIfRequired())")
+        spinCalc(settings: settings)
+    }
+    
+    func resetIfRequired() -> Bool {
         if let diff = Calendar.current.dateComponents([.hour], from: dailyResetTime, to: Date()).hour, diff > 24 {
             resetDailySpins()
             return true
@@ -53,7 +59,6 @@ class SpinViewModel: ObservableObject {
                                             }})
             task.resume()
         }
-        spinCalc(settings: settings)
     }
     
     func spinCalc(settings: SettingsViewModel) {
@@ -61,17 +66,17 @@ class SpinViewModel: ObservableObject {
         let percent = settings.getPercent()
         let lowGoal = settings.lowBar
         let highGoal = settings.highBar
-        var earnedSpins = 0;
+        var earnedSpins = 0
         
-        if percent > lowGoal {
+        if percent > lowGoal && numPossibleSpins > 0 {
             if percent > highGoal {
-                earnedSpins += (numPossibleSpins == 0) ? 0 : numPossibleSpins
+                earnedSpins += numPossibleSpins
             }
             else if percent > lowGoal + 2*levels {
-                earnedSpins += (numPossibleSpins == 0) ? 0 : (numPossibleSpins - 1)
+                earnedSpins += numPossibleSpins - 1
             }
             else if percent > lowGoal {
-                earnedSpins += (numPossibleSpins == 0) ? 0 : (numPossibleSpins - 2)
+                earnedSpins += numPossibleSpins - 2
             }
         } else {
             earnedSpins = 0

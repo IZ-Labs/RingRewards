@@ -16,20 +16,16 @@ struct DispenserView: View {
             LinearGradient(gradient: Gradient(colors: [Color("darkBlue"), Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
             ScrollView(.vertical, showsIndicators: false){
                 PullToRefresh(coordinateSpaceName: "pullToRefresh", onRefresh: {
-                    settings.updateRings()
-                    spinTracker.spinCalc(settings: settings)
-                    print("Daily total reset: \(spinTracker.isResetRequired())")
+                    spinTracker.refreshTasks(settings: settings)
                 })
                 VStack{
                     SummaryView()
-                        .onAppear(perform: { settings.updateRings() })
                     SpinTrackerView()
-                        .onAppear(perform: { spinTracker.spinCalc(settings: settings) })
                     CandyControlView()
-                        .onAppear(perform: {
-                            print("Daily total reset: \(spinTracker.isResetRequired())")
-                        })
                 }
+                .onAppear(perform: {
+                    spinTracker.refreshTasks(settings: settings)
+                })
             }
         }
     }
