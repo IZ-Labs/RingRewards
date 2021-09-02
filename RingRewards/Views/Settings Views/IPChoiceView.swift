@@ -21,7 +21,7 @@ struct IPChoiceView: View {
             TextField("192.168.0.108", text: $ipVal, onCommit:{
                 settings.ipVal = ipVal
             })
-            .font(.system(size: 20, weight: .bold, design: .default))
+            .font(.system(size: 20, weight: .medium, design: .default))
             .frame(width: UIScreen.main.bounds.width*0.80, height: 55, alignment: .center)
             .foregroundColor(.white)
             .background(Color("darkBlue"))

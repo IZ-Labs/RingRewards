@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var settings = SettingsViewModel()
-    @StateObject var spinTracker = SpinViewModel()
+    @EnvironmentObject var settings : SettingsViewModel
+    @EnvironmentObject var spinTracker : SpinViewModel
     
     var body: some View {
         TabView(){
@@ -18,10 +18,10 @@ struct HomeView: View {
                 Image(systemName: "hare.fill")
                 Text("Dispenser")}
             
-            resetTestView()
+            ChanceView()
                 .tabItem {
                 Image(systemName: "die.face.3.fill")
-                Text("Debugging")
+                Text("Chance")
             }
             
             SettingsView()
@@ -29,9 +29,13 @@ struct HomeView: View {
                 Image(systemName: "gearshape.fill")
                 Text("Settings")
             }
+            
+            resetTestView()
+                .tabItem {
+                Image(systemName: "pencil.and.outline")
+                Text("Debugging")
+            }
         }
-        .environmentObject(settings)
-        .environmentObject(spinTracker)
         .coordinateSpace(name: "pullToRefresh")
     }
 }
@@ -39,6 +43,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            
+            .environmentObject(SettingsViewModel())
+            .environmentObject(SpinViewModel())
     }
 }

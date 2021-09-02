@@ -17,6 +17,7 @@ struct ChanceView: View {
             ScrollView(.vertical, showsIndicators: false){
                 VStack{
                     Text("Chance").font(.system(size: 38, weight: .bold, design: .default)).foregroundColor(.white).frame(width: UIScreen.main.bounds.width*0.90, height: 80, alignment: .leading)
+                    ChanceTextView()
                 }
             }
         }
