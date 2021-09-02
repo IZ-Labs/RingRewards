@@ -25,6 +25,11 @@ class SpinViewModel: ObservableObject {
         set { spinTracker.dailyResetTime = newValue }
     }
     
+    var didPlayChance: Bool {
+        get { spinTracker.didPlayChance }
+        set { spinTracker.didPlayChance = newValue }
+    }
+    
     func refreshTasks(settings: SettingsViewModel) {
         settings.updateRings()
         print("Daily total reset: \(resetIfRequired())")
@@ -33,17 +38,18 @@ class SpinViewModel: ObservableObject {
     
     func resetIfRequired() -> Bool {
         if let diff = Calendar.current.dateComponents([.hour], from: dailyResetTime, to: Date()).hour, diff > 24 {
-            resetDailySpins()
+            resetDailyValues()
             return true
         } else {
             return false
         }
     }
     
-    func resetDailySpins() {
+    func resetDailyValues() {
         dailyResetTime = Calendar.current.startOfDay(for: Date())
         numPossibleSpins = 3
         numUserSpins = 0
+        didPlayChance = false
     }
     
     func spin(spins: Int, settings: SettingsViewModel){

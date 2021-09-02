@@ -12,17 +12,17 @@ struct ChanceTextView: View {
     @EnvironmentObject var settings: SettingsViewModel
     @EnvironmentObject var spinTracker: SpinViewModel
     
-    @State var maxValue = 100
+    @State var maxValue = 50
     private var generator = SystemRandomNumberGenerator()
-    private var randNum = (1...100).randomElement()
-    @State private var textIn = "0"
+    private var randNum = (1...50).randomElement()
+    @State private var textIn = ""
     @State private var guess = 0.0
     @State private var hasGuessed = false
     @State private var winner = false
     
     var body: some View {
         VStack {
-            if !hasGuessed {
+            if !hasGuessed && !spinTracker.didPlayChance {
                 CardView(height: 300, content: {
                     Text("Enter a number between\n1 and \(maxValue) for a chance at an\nextra reward")
                         .font(.title2)
@@ -70,14 +70,15 @@ struct ChanceTextView: View {
                                     .multilineTextAlignment(.center)
                             }.onAppear(perform: {
                                 spinTracker.spin(spins: 1, settings: settings)
+                                spinTracker.didPlayChance.toggle()
                             })
                         } else {
                             VStack{
-                                Image(systemName: "cloud.heavyrain.fill") .renderingMode(.original)
+                                Image(systemName: "moon.circle.fill") .renderingMode(.original)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: UIScreen.main.bounds.width*0.3, height: UIScreen.main.bounds.width*0.3, alignment: .center)
-                                Text("No Luck!\nTry again tomorrow")
+                                Text("Try again tomorrow")
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .multilineTextAlignment(.center)
