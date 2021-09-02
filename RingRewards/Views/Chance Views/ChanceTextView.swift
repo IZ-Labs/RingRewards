@@ -1,8 +1,8 @@
 //
-//  SummaryView.swift
+//  ChanceTextView.swift
 //  RingRewards
 //
-//  Created by Iain Zwiebel on 8/22/21.
+//  Created by Iain Zwiebel on 9/01/21.
 //
 
 import SwiftUI

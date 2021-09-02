@@ -1,8 +1,8 @@
 //
-//  DispenserView.swift
+//  ChanceView.swift
 //  RingRewards
 //
-//  Created by Iain Zwiebel on 8/29/21.
+//  Created by Iain Zwiebel on 9/01/21.
 //
 
 import SwiftUI
