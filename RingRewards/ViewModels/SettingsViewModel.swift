@@ -2,7 +2,7 @@
 //  SettingsViewModel.swift
 //  RingRewards
 //
-//  Created by Iain Zwiebel on 8/27/21.
+//  Created by Iain Zwiebel on 8/28/21.
 //
 
 import Foundation

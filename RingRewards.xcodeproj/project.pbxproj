@@ -49,7 +49,7 @@
 		3F73BCB526D2CC4C00785C97 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		3F73BCB726D2D7F400785C97 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		3F73BCB926D2D92D00785C97 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		3F73BCBD26D2E04200785C97 /* GoalChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalChoiceView.swift; path = "RingRewards/Views/Dispenser Views/GoalChoiceView.swift"; sourceTree = SOURCE_ROOT; };
+		3F73BCBD26D2E04200785C97 /* GoalChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalChoiceView.swift; path = "RingRewards/Views/Settings Views/GoalChoiceView.swift"; sourceTree = SOURCE_ROOT; };
 		3F73BCBF26D2E11800785C97 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		3F73BCC326D3332800785C97 /* RangeChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeChoiceView.swift; sourceTree = "<group>"; };
 		3F8835CB26D9B99E005C4B31 /* IPChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPChoiceView.swift; sourceTree = "<group>"; };
@@ -61,8 +61,8 @@
 		3F8835D926DBE531005C4B31 /* SpinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinViewModel.swift; sourceTree = "<group>"; };
 		3F8835DB26DC3C06005C4B31 /* DispenserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenserView.swift; sourceTree = "<group>"; };
 		3F8835DD26DD80DF005C4B31 /* resetTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resetTestView.swift; sourceTree = "<group>"; };
-		3F8835E026DF0AA7005C4B31 /* ChanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChanceView.swift; path = "RingRewards/Views/Dispenser Views/ChanceView.swift"; sourceTree = SOURCE_ROOT; };
-		3F8835E226DF0B95005C4B31 /* ChanceTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChanceTextView.swift; path = "RingRewards/Views/Dispenser Views/ChanceTextView.swift"; sourceTree = SOURCE_ROOT; };
+		3F8835E026DF0AA7005C4B31 /* ChanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChanceView.swift; path = "RingRewards/Views/Chance Views/ChanceView.swift"; sourceTree = SOURCE_ROOT; };
+		3F8835E226DF0B95005C4B31 /* ChanceTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChanceTextView.swift; path = "RingRewards/Views/Chance Views/ChanceTextView.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RingRewards/RingRewards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"RingRewards/Preview Content\"";
 				DEVELOPMENT_TEAM = P679395EHV;
 				ENABLE_PREVIEWS = YES;
@@ -446,6 +447,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RingRewards/RingRewards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"RingRewards/Preview Content\"";
 				DEVELOPMENT_TEAM = P679395EHV;
 				ENABLE_PREVIEWS = YES;

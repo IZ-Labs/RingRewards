@@ -1,8 +1,8 @@
 //
-//  SummaryView.swift
+//  SpinTrackerView.swift
 //  RingRewards
 //
-//  Created by Iain Zwiebel on 8/22/21.
+//  Created by Iain Zwiebel on 8/28/21.
 //
 
 import SwiftUI

@@ -23,9 +23,6 @@ struct DispenserView: View {
                     SpinTrackerView()
                     CandyControlView()
                 }
-                .onAppear(perform: {
-                    spinTracker.refreshTasks(settings: settings)
-                })
             }
         }
     }

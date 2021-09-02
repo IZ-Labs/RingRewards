@@ -1,5 +1,5 @@
 //
-//  SummaryView.swift
+//  RangeChoiceView.swift
 //  RingRewards
 //
 //  Created by Iain Zwiebel on 8/22/21.

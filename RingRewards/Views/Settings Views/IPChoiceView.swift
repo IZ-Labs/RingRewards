@@ -1,8 +1,8 @@
 //
-//  SummaryView.swift
+//  IPChoiceView.swift
 //  RingRewards
 //
-//  Created by Iain Zwiebel on 8/22/21.
+//  Created by Iain Zwiebel on 8/27/21.
 //
 
 import SwiftUI
