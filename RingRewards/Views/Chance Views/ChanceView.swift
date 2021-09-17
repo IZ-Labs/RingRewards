@@ -13,12 +13,19 @@ struct ChanceView: View {
     
     var body: some View {
         ZStack{
-            LinearGradient(gradient: Gradient(colors: [Color("darkBlue"), Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
+            LinearGradient(gradient: Gradient(colors: [Color("darkBlue"), Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
             ScrollView(.vertical, showsIndicators: false){
-                VStack{
-                    Text("Chance").font(.system(size: 38, weight: .bold, design: .default)).foregroundColor(.white).frame(width: UIScreen.main.bounds.width*0.90, height: 80, alignment: .leading)
-                    ChanceTextView()
+                HStack {
+                    Spacer()
+                    Text("Chance")
+                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .frame(width: UIScreen.main.bounds.width*0.9, height: 80, alignment: .leading)
+                    Spacer()
                 }
+                ChanceTextView()
             }
         }
     }

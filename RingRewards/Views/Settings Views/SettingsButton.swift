@@ -11,6 +11,7 @@ struct SettingsButton: View {
     @EnvironmentObject var settings: SettingsViewModel
     var title: String
     @Binding var RTGoal: String
+    @ScaledMetric var scaleSize: CGFloat = 1
     
     var body: some View {
         Button(action: {
@@ -19,15 +20,16 @@ struct SettingsButton: View {
         }, label: {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
-                    .frame(width: UIScreen.main.bounds.width*0.25, height: 55, alignment: .center)
+                    .frame(width: UIScreen.main.bounds.width*0.28*scaleSize, height: scaleSize*55, alignment: .center)
                     .foregroundColor(settings.getSettingsColor(title: title))
                     .overlay(RoundedRectangle(cornerRadius: 10)
-                                .stroke(goalTrack(goal: title), lineWidth: 2))
-                    .padding(.all, 3)
+                                .stroke(goalTrack(goal: title), lineWidth: 3))
+                    .padding(3)
                 Text(title)
                     .font(.title3)
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
+                    .padding()
             }
         })
     }

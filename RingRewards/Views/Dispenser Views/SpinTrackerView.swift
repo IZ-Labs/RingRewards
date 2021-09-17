@@ -11,18 +11,22 @@ import HealthKit
 struct SpinTrackerView: View {
     @EnvironmentObject var settings: SettingsViewModel
     @EnvironmentObject var spinTracker: SpinViewModel
+    @Environment(\.sizeCategory) var sizeCategory
+    @ScaledMetric var scaleSize: CGFloat = 1
     
     var body: some View {
         CardView(height: 80, content: {
-            HStack {
-                Text("# of Avaliable Rewards: ")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                Text("\(spinTracker.numUserSpins)")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.orange)
-            }
+            VStack {
+                HStack {
+                    Text("Available Rewards: ")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    Text("\(spinTracker.numUserSpins)")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.orange)
+                }
+            }.padding(25)
         })
     }
 }

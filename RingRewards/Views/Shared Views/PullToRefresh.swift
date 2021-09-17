@@ -10,6 +10,7 @@ import SwiftUI
 struct PullToRefresh: View {
     var coordinateSpaceName: String
     var onRefresh: () -> Void
+    @ScaledMetric var topPadding: CGFloat = -50
     
     @State var needRefresh: Bool = false
     
@@ -20,7 +21,7 @@ struct PullToRefresh: View {
                     .onAppear {
                         needRefresh = true
                     }
-            } else if (geo.frame(in: .named(coordinateSpaceName)).maxY < 55) {
+            } else if (geo.frame(in: .named(coordinateSpaceName)).maxY > 55) {
                 Spacer()
                     .onAppear {
                         if needRefresh {
@@ -39,6 +40,6 @@ struct PullToRefresh: View {
                 }
                 Spacer()
             }
-        }.padding(.top, -60)
+        }.padding(.top, topPadding)
     }
 }

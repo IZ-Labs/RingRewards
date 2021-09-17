@@ -11,6 +11,8 @@ import HealthKit
 struct ChanceTextView: View {
     @EnvironmentObject var settings: SettingsViewModel
     @EnvironmentObject var spinTracker: SpinViewModel
+    @Environment(\.sizeCategory) var sizeCategory
+    @ScaledMetric var scaleSize: CGFloat = 1
     
     @State var maxValue = 50
     private var generator = SystemRandomNumberGenerator()
@@ -22,38 +24,45 @@ struct ChanceTextView: View {
     
     var body: some View {
         VStack {
-            if !hasGuessed && !spinTracker.didPlayChance {
+            if !hasGuessed {
                 CardView(height: 300, content: {
-                    Text("Enter a number between\n1 and \(maxValue) for a chance at an\nextra reward")
-                        .font(.title2)
-                        .fontWeight(.bold)
+                    VStack {
+                        Text("Enter a number between\n1 and \(maxValue) for a chance at an\nextra reward")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                        // Uncomment line below to reveal random num for debugging
+                        //Text("random value is \(randNum!)")
+                        
+                        TextField("Whole Number", text: $textIn)
+                        .keyboardType(.decimalPad)
+                        .font(.title3)
+                        .colorScheme(.light)
+                        .frame(width: UIScreen.main.bounds.width*0.65, height: scaleSize*50, alignment: .center)
+                        .foregroundColor(.black)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .padding(.vertical, 5.0)
                         .multilineTextAlignment(.center)
-                    Text("random value is \(randNum!)")
-                    
-                    TextField("Input Whole Number", text: $textIn, onCommit:{
-                        guess = Double(textIn)!
-                    })
-                    .font(.system(size: 20, weight: .bold, design: .default))
-                    .frame(width: UIScreen.main.bounds.width*0.65, height: 50, alignment: .center)
-                    .foregroundColor(.black)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .padding(.vertical)
-                    .multilineTextAlignment(.center)
-                    
-                    if guess != 0 {
-                        Button(action: { hasGuessed.toggle() }, label: {
+                        
+                        Button(action: {
+                            hasGuessed.toggle()
+                            spinTracker.didPlayChance = true
+                            guess = Double(textIn)!
+                            self.textIn = "" // Clear text
+                            UIApplication.shared.endEditing() // Call to dismiss keyboard
+                        }, label: {
                             ZStack{
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundColor(Color.blue)
-                                    .frame(width: UIScreen.main.bounds.width*0.4, height: 55, alignment: .center)
+                                    .frame(width: UIScreen.main.bounds.width*0.4, height: scaleSize*55, alignment: .center)
                                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 3))
                                 Text("Submit Guess")
                                     .font(.headline)
                                     .foregroundColor(.white)
                             }
                         })
-                    }
+                    }.padding(.vertical, 35)
                 })
             } else {
                 CardView(height: 300, content: {
@@ -85,8 +94,12 @@ struct ChanceTextView: View {
                             }
                         }
                     }
+                    .padding(.vertical, 60)
                 })
             }
+        }
+        .onTapGesture {
+            UIApplication.shared.endEditing()
         }
     }
 }
@@ -96,5 +109,11 @@ struct ChanceTextView_Previews: PreviewProvider {
         ChanceTextView()
             .environmentObject(SettingsViewModel())
             .environmentObject(SpinViewModel())
+    }
+}
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

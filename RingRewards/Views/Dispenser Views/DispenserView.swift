@@ -13,7 +13,8 @@ struct DispenserView: View {
     
     var body: some View {
         ZStack{
-            LinearGradient(gradient: Gradient(colors: [Color("darkBlue"), Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
+            LinearGradient(gradient: Gradient(colors: [Color("darkBlue"), Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
             ScrollView(.vertical, showsIndicators: false){
                 PullToRefresh(coordinateSpaceName: "pullToRefresh", onRefresh: {
                     spinTracker.refreshTasks(settings: settings)

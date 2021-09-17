@@ -31,13 +31,13 @@ class SpinViewModel: ObservableObject {
     }
     
     func refreshTasks(settings: SettingsViewModel) {
-        settings.updateRings()
         print("Daily total reset: \(resetIfRequired())")
+        settings.updateRings()
         spinCalc(settings: settings)
     }
     
     func resetIfRequired() -> Bool {
-        if let diff = Calendar.current.dateComponents([.hour], from: dailyResetTime, to: Date()).hour, diff > 24 {
+        if let diff = Calendar.current.dateComponents([.hour], from: dailyResetTime, to: Date()).hour, diff >= 24 {
             resetDailyValues()
             return true
         } else {

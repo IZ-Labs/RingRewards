@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardView<Content: View>: View {
-    var height: CGFloat
+    @ScaledMetric var height: CGFloat
     @ViewBuilder var content: Content
     
     var body: some View {
@@ -16,9 +16,9 @@ struct CardView<Content: View>: View {
             content
                 .foregroundColor(.white)
         }
-        .frame(width: UIScreen.main.bounds.width*0.95, height: height, alignment: .center)
-        .background(RoundedRectangle(cornerRadius: 30).fill(Color.black))
-        .padding(.all, 3.0)
+        .frame(width: UIScreen.main.bounds.width*0.95, height: nil, alignment: .center)
+        .background(RoundedRectangle(cornerRadius: 25).fill(Color.black))
+        .padding(2.5)
     }
 }
 

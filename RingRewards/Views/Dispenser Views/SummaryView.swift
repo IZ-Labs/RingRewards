@@ -10,24 +10,40 @@ import HealthKit
 
 struct SummaryView: View {
     @EnvironmentObject var settings: SettingsViewModel
+    @Environment(\.sizeCategory) var sizeCategory
+    @ScaledMetric var scaleSize: CGFloat = 1
     
     var body: some View {
         CardView(height: 280, content: {
-            Text("Today's Progress")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            RingView()
-                .frame(width: 125, height: 125, alignment: .center)
-                .padding(.all, 10)
-            HStack(alignment: .firstTextBaseline, spacing: 0.1, content: {
-                Text("Currently: ")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                Text("\(String(format: "%.1f", settings.getPercent())) %")
-                    .foregroundColor(settings.goalColor)
-                    .font(.title3)
-                    .fontWeight(.semibold)
-            })
+            VStack {
+                Text("Today's Progress")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                RingView()
+                    .frame(width: scaleSize*125, height: scaleSize*125, alignment: .center)
+                    .padding(.all, 10)
+                if sizeCategory <= ContentSizeCategory.accessibilityExtraLarge {
+                    HStack(alignment: .firstTextBaseline, spacing: 0.1, content: {
+                        Text("Currently: ")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                        Text("\(String(format: "%.1f", settings.getPercent())) %")
+                            .foregroundColor(settings.goalColor)
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                    })
+                } else {
+                    VStack(spacing: 0.1, content: {
+                        Text("Currently: ")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                        Text("\(String(format: "%.1f", settings.getPercent())) %")
+                            .foregroundColor(settings.goalColor)
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                    })
+                }
+            }.padding(25)
         })
     }
 }
