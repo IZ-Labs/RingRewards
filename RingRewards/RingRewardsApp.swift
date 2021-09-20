@@ -14,10 +14,17 @@ struct RingRewardsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .onAppear(perform: { spinTracker.refreshTasks(settings: settings) })
-                .environmentObject(settings)
-                .environmentObject(spinTracker)
+            if settings.hasOnboarded {
+                HomeView()
+                    .onAppear(perform: { spinTracker.refreshTasks(settings: settings) })
+                    .environmentObject(settings)
+                    .environmentObject(spinTracker)
+            } else {
+                onboardingView()
+                    .environmentObject(settings)
+                    .environmentObject(spinTracker)
+            }
+            
         }
     }
 }

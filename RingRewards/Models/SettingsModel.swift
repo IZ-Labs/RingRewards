@@ -9,58 +9,66 @@ import Foundation
 import SwiftUI
 
 class SettingsModel {
-    var trackingGoal: String {
+    @AppStorage("trackingGoal") var trackingGoal: String = "Move" {
         didSet {
             UserDefaults.standard.set(trackingGoal, forKey: "trackingGoal")
             print("set \(trackingGoal) as trackingGoal")
         }
     }
     
-    var numSpins: Int {
-        didSet {
-            UserDefaults.standard.set(numSpins, forKey: "numSpins")
-        }
-    }
-    
-    var lowBar: Double {
+    @AppStorage("lowBar") var lowBar: Double = 0 {
         didSet {
             UserDefaults.standard.set(lowBar, forKey: "lowBar")
         }
     }
     
-    var highBar: Double {
+    @AppStorage("highBar") var highBar: Double = 100 {
         didSet {
             UserDefaults.standard.set(highBar, forKey: "highBar")
         }
     }
     
-    var ipVal: String {
+    @AppStorage("ipVal") var ipVal: String = "192.168.0.108" {
         didSet {
             UserDefaults.standard.set(ipVal, forKey: "ipVal")
         }
     }
     
-    var HKAuth: Bool {
+    @AppStorage("HKAuth") var HKAuth: Bool = false {
         didSet {
             UserDefaults.standard.set(HKAuth, forKey: "HKAuth")
+        }
+    }
+    
+    @AppStorage("wifiAuth") var wifiAuth: Bool = false {
+        didSet {
+            UserDefaults.standard.set(wifiAuth, forKey: "wifiAuth")
+        }
+    }
+    
+    @AppStorage("hasOnboarded") var hasOnboarded: Bool = false {
+        didSet {
+            UserDefaults.standard.set(hasOnboarded, forKey: "hasOnboarded")
         }
     }
     
     init() {
         UserDefaults.standard.register(defaults: [
             "trackingGoal" : "Move",
-            "numSpins" : 0,
             "lowBar" : 50,
             "highBar" : 100,
-            "ipVal" : "198.168.0.108",
-            "HKAuth" : false
+            "ipVal" : "192.168.0.108",
+            "HKAuth" : false,
+            "wifiAuth" : false,
+            "hasOnboarded" : false
         ])
         trackingGoal = UserDefaults.standard.string(forKey: "trackingGoal")!
-        numSpins = UserDefaults.standard.integer(forKey: "numSpins")
         lowBar = UserDefaults.standard.double(forKey: "lowBar")
         highBar = UserDefaults.standard.double(forKey: "highBar")
         ipVal = UserDefaults.standard.string(forKey: "ipVal")!
         HKAuth = UserDefaults.standard.bool(forKey: "HKAuth")
+        wifiAuth = UserDefaults.standard.bool(forKey: "wifiAuth")
+        hasOnboarded = UserDefaults.standard.bool(forKey: "hasOnboarded")
     }
     
     public var goalColor: Color {

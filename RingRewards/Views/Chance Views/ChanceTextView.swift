@@ -31,6 +31,7 @@ struct ChanceTextView: View {
                             .font(.title2)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
                         // Uncomment line below to reveal random num for debugging
                         //Text("random value is \(randNum!)")
                         
@@ -77,6 +78,7 @@ struct ChanceTextView: View {
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .multilineTextAlignment(.center)
+                                    .fixedSize(horizontal: false, vertical: true)
                             }.onAppear(perform: {
                                 spinTracker.spin(spins: 1, settings: settings)
                                 spinTracker.didPlayChance.toggle()
@@ -91,6 +93,7 @@ struct ChanceTextView: View {
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .multilineTextAlignment(.center)
+                                    .fixedSize(horizontal: false, vertical: true)
                             }
                         }
                     }

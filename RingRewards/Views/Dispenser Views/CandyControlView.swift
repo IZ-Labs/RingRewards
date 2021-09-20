@@ -30,6 +30,7 @@ struct CandyControlView: View {
                             .font(.title2)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
                     }.padding(.vertical, 40)
                     
                 } else {
@@ -43,6 +44,7 @@ struct CandyControlView: View {
                             .font(.title2)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
                     }.padding(.vertical, 40)
                 }
             case 1...3:
@@ -51,6 +53,7 @@ struct CandyControlView: View {
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
                     Button(action: {
                         spinTracker.spin(spins: 1, settings: settings)
                         spinTracker.refreshTasks(settings: settings)

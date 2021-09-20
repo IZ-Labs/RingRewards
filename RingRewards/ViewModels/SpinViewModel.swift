@@ -12,22 +12,38 @@ class SpinViewModel: ObservableObject {
     
     var numUserSpins: Int {
         get { spinTracker.numUserSpins }
-        set { spinTracker.numUserSpins = newValue }
+        set { spinTracker.numUserSpins = newValue
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
     }
     
     var numPossibleSpins: Int {
         get { spinTracker.numPossibleSpins }
-        set { spinTracker.numPossibleSpins = newValue }
+        set { spinTracker.numPossibleSpins = newValue
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
     }
     
     var dailyResetTime: Date {
         get { spinTracker.dailyResetTime }
-        set { spinTracker.dailyResetTime = newValue }
+        set { spinTracker.dailyResetTime = newValue
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
     }
     
     var didPlayChance: Bool {
         get { spinTracker.didPlayChance }
-        set { spinTracker.didPlayChance = newValue }
+        set { spinTracker.didPlayChance = newValue
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
     }
     
     func refreshTasks(settings: SettingsViewModel) {

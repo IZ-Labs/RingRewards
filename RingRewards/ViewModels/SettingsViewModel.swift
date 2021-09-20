@@ -17,40 +17,92 @@ class SettingsViewModel: ObservableObject {
     
     var trackingGoal: String {
         get { settings.trackingGoal }
-        set { settings.trackingGoal = newValue }
-    }
-    
-    var numSpins: Int {
-        get { settings.numSpins }
-        set { settings.numSpins = newValue }
+        set { settings.trackingGoal = newValue
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
     }
     
     var lowBar: Double {
         get { Double(settings.lowBar) }
-        set { settings.lowBar = Double(newValue) }
+        set { settings.lowBar = Double(newValue)
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
     }
     
     var highBar: Double {
         get { Double(settings.highBar) }
-        set { settings.highBar = Double(newValue) }
+        set { settings.highBar = Double(newValue)
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
     }
     
     var ipVal: String {
         get { settings.ipVal }
-        set { settings.ipVal = newValue }
+        set { settings.ipVal = newValue
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
     }
     
     var HKAuth: Bool {
         get { settings.HKAuth }
-        set { settings.HKAuth = newValue }
+        set { settings.HKAuth = newValue
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
+    }
+    
+    var wifiAuth: Bool {
+        get { settings.wifiAuth }
+        set { settings.wifiAuth = newValue
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
+    }
+    
+    var hasOnboarded: Bool {
+        get { settings.hasOnboarded }
+        set { settings.hasOnboarded = newValue
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
     }
     
     var goalColor: Color {
         get { return settings.goalColor }
     }
     
-    func HKAuthorized() {
-        settings.HKAuth.toggle()
+    func requestHKAuth() {
+        if let healthStore = healthStore {
+            healthStore.requestAuthorization { success in
+                if success {
+                    print("HK authorization success")
+                    self.HKAuth = true
+                    healthStore.getActivitySummary(completion: {recentSummary in self.summary = recentSummary })
+                }
+            }
+        }
+    }
+    
+    func requestWifiAuth() {
+        let url = URL(string: "https://www.apple.com")!
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
+            if response != nil {
+                self.wifiAuth = true
+                print("Wifi Authorized")
+            }
+        })
+        task.resume()
     }
     
     func getSettingsColor (title: String) -> Color {
@@ -67,13 +119,7 @@ class SettingsViewModel: ObservableObject {
             if HKAuth {
                 healthStore.getActivitySummary(completion: {recentSummary in self.summary = recentSummary })
             } else {
-                healthStore.requestAuthorization { success in
-                    if success {
-                        print("HK authorization success")
-                        healthStore.getActivitySummary(completion: {recentSummary in self.summary = recentSummary })
-                    }
-                }
-                HKAuth.toggle()
+                requestHKAuth()
             }
         }
     }

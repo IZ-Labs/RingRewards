@@ -6,27 +6,28 @@
 //
 
 import Foundation
+import SwiftUI
 
 class SpinModel {
-    var numUserSpins: Int {
+    @AppStorage("numUserSpins") var numUserSpins: Int = 0 {
         didSet {
             UserDefaults.standard.set(numUserSpins, forKey: "numUserSpins")
         }
     }
     
-    var numPossibleSpins: Int {
+    @AppStorage("numPossibleSpins") var numPossibleSpins: Int = 3 {
         didSet {
             UserDefaults.standard.set(numPossibleSpins, forKey: "numPossibleSpins")
         }
     }
     
-    var dailyResetTime: Date {
+    @AppStorage("dailyResetTime") var dailyResetTime: Date = Calendar.current.startOfDay(for: Date() - 1) {
         didSet {
             UserDefaults.standard.set(dailyResetTime, forKey: "dailyResetTime")
         }
     }
     
-    var didPlayChance: Bool {
+    @AppStorage("didPlayChance") var didPlayChance: Bool = false {
         didSet {
             UserDefaults.standard.set(didPlayChance, forKey: "didPlayChance")
         }
@@ -43,5 +44,15 @@ class SpinModel {
         numPossibleSpins = UserDefaults.standard.integer(forKey: "numPossibleSpins")
         dailyResetTime = UserDefaults.standard.object(forKey: "dailyResetTime") as! Date
         didPlayChance = UserDefaults.standard.bool(forKey: "didPlayChance")
+    }
+}
+
+extension Date: RawRepresentable {
+    public var rawValue: String {
+        self.timeIntervalSinceReferenceDate.description
+    }
+    
+    public init?(rawValue: String) {
+        self = Date(timeIntervalSinceReferenceDate: Double(rawValue) ?? 0.0)
     }
 }
