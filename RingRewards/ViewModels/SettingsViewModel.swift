@@ -69,6 +69,15 @@ class SettingsViewModel: ObservableObject {
         }
     }
     
+    var settingsInitalized: Bool {
+        get { settings.settingsInitalized }
+        set { settings.settingsInitalized = newValue
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
+    }
+    
     var hasOnboarded: Bool {
         get { settings.hasOnboarded }
         set { settings.hasOnboarded = newValue

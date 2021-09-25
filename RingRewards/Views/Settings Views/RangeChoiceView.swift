@@ -40,9 +40,9 @@ struct RangeChoiceView: View {
                             .onChange(of: lowRange, perform: { value in
                                 settings.lowBar = lowRange
                             })
-                            .padding(10)
+                            .padding(8)
                     }
-                    .padding(.vertical, 10.0)
+                    .padding(.vertical, 8)
                     HStack{
                         Text("High-end Cutoff")
                             .font(.callout)
@@ -52,9 +52,9 @@ struct RangeChoiceView: View {
                             .onChange(of: highRange, perform: { value in
                                 settings.highBar = highRange
                             })
-                            .padding(10)
+                            .padding(8)
                     }
-                    .padding(.vertical, 10.0)
+                    .padding(.vertical, 8)
                 } else {
                     VStack{
                         Text("Low-end Cutoff")
@@ -84,7 +84,7 @@ struct RangeChoiceView: View {
                 }
             }
             .frame(width: UIScreen.main.bounds.width*0.9, height: nil, alignment: .center)
-            .padding(.vertical, 25)
+            .padding(.vertical, 10)
         })
     }
 }

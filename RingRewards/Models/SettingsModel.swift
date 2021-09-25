@@ -46,6 +46,12 @@ class SettingsModel {
         }
     }
     
+    @AppStorage("settingsInitalized") var settingsInitalized: Bool = false {
+        didSet {
+            UserDefaults.standard.set(settingsInitalized, forKey: "settingsInitalized")
+        }
+    }
+    
     @AppStorage("hasOnboarded") var hasOnboarded: Bool = false {
         didSet {
             UserDefaults.standard.set(hasOnboarded, forKey: "hasOnboarded")
@@ -60,6 +66,7 @@ class SettingsModel {
             "ipVal" : "192.168.0.108",
             "HKAuth" : false,
             "wifiAuth" : false,
+            "settingsInitalized" : false,
             "hasOnboarded" : false
         ])
         trackingGoal = UserDefaults.standard.string(forKey: "trackingGoal")!
@@ -68,6 +75,7 @@ class SettingsModel {
         ipVal = UserDefaults.standard.string(forKey: "ipVal")!
         HKAuth = UserDefaults.standard.bool(forKey: "HKAuth")
         wifiAuth = UserDefaults.standard.bool(forKey: "wifiAuth")
+        settingsInitalized = UserDefaults.standard.bool(forKey: "settingsInitalized")
         hasOnboarded = UserDefaults.standard.bool(forKey: "hasOnboarded")
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1D726726FD7C6F00788AEA /* initalSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D726626FD7C6F00788AEA /* initalSettingsView.swift */; };
 		3F613DEF26D28DAA00BD013F /* RingRewardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F613DEE26D28DAA00BD013F /* RingRewardsApp.swift */; };
 		3F613DF126D28DAA00BD013F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F613DF026D28DAA00BD013F /* HomeView.swift */; };
 		3F613DF326D28DAC00BD013F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F613DF226D28DAC00BD013F /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F1D726626FD7C6F00788AEA /* initalSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initalSettingsView.swift; sourceTree = "<group>"; };
 		3F613DEB26D28DAA00BD013F /* RingRewards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingRewards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F613DEE26D28DAA00BD013F /* RingRewardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingRewardsApp.swift; sourceTree = "<group>"; };
 		3F613DF026D28DAA00BD013F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				3FE8CA8C26F7ED6500EEEC7A /* onboardingView.swift */,
 				3FE8CA8E26F7ED9300EEEC7A /* onboardingItemView.swift */,
+				3F1D726626FD7C6F00788AEA /* initalSettingsView.swift */,
 			);
 			path = "Onboarding Views";
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1D726726FD7C6F00788AEA /* initalSettingsView.swift in Sources */,
 				3FE8CA8F26F7ED9300EEEC7A /* onboardingItemView.swift in Sources */,
 				3F8835DA26DBE531005C4B31 /* SpinViewModel.swift in Sources */,
 				3F73BCB826D2D7F400785C97 /* SettingsModel.swift in Sources */,

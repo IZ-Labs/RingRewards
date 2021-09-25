@@ -24,7 +24,7 @@ struct ChanceTextView: View {
     
     var body: some View {
         VStack {
-            if !hasGuessed {
+            if !hasGuessed && !spinTracker.didPlayChance{
                 CardView(height: 300, content: {
                     VStack {
                         Text("Enter a number between\n1 and \(maxValue) for a chance at an\nextra reward")
@@ -36,7 +36,7 @@ struct ChanceTextView: View {
                         //Text("random value is \(randNum!)")
                         
                         TextField("Whole Number", text: $textIn)
-                        .keyboardType(.decimalPad)
+                            .keyboardType(.numberPad)
                         .font(.title3)
                         .colorScheme(.light)
                         .frame(width: UIScreen.main.bounds.width*0.65, height: scaleSize*50, alignment: .center)
@@ -79,10 +79,7 @@ struct ChanceTextView: View {
                                     .fontWeight(.bold)
                                     .multilineTextAlignment(.center)
                                     .fixedSize(horizontal: false, vertical: true)
-                            }.onAppear(perform: {
-                                spinTracker.spin(spins: 1, settings: settings)
-                                spinTracker.didPlayChance.toggle()
-                            })
+                            }
                         } else {
                             VStack{
                                 Image(systemName: "moon.circle.fill") .renderingMode(.original)

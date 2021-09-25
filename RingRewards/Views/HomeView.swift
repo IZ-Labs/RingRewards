@@ -16,25 +16,26 @@ struct HomeView: View {
             DispenserView()
                 .tabItem {
                 Image(systemName: "hare.fill")
-                Text("Dispenser")}
+                Text("Dispenser")
+                }
             
             ChanceView()
                 .tabItem {
                 Image(systemName: "die.face.3.fill")
                 Text("Chance")
-            }
+                }
             
             SettingsView()
                 .tabItem {
                 Image(systemName: "gearshape.fill")
                 Text("Settings")
-            }
+                }
             
-            resetTestView()
-                .tabItem {
-                Image(systemName: "pencil.and.outline")
-                Text("Debugging")
-            }
+//            resetTestView()
+//                .tabItem {
+//                Image(systemName: "pencil.and.outline")
+//                Text("Debugging")
+//                }
         }
         .coordinateSpace(name: "pullToRefresh")
     }

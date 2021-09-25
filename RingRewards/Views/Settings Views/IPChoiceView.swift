@@ -16,7 +16,7 @@ struct IPChoiceView: View {
     var body: some View {
         CardView(height: 140, content: {
             VStack {
-                Text("What is the IP address of the ESP8266?")
+                Text("What is the IP address of the dispenser?")
                     .font(.title3)
                     .fontWeight(.bold)
                     .fixedSize(horizontal: false, vertical: true)
@@ -33,7 +33,7 @@ struct IPChoiceView: View {
                 .multilineTextAlignment(.center)
             }
             .frame(width: UIScreen.main.bounds.width*0.9, height: nil, alignment: .center)
-            .padding(.vertical, 25)
+            .padding(.vertical, 20)
         })
     }
 }
