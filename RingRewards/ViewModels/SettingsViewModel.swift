@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import HealthKitUI
 
+
 class SettingsViewModel: ObservableObject {
     @Published var settings = SettingsModel()
     @Published var summary = HKActivitySummary()
@@ -103,15 +104,9 @@ class SettingsViewModel: ObservableObject {
         }
     }
     
-    func requestWifiAuth() {
-        let url = URL(string: "https://www.apple.com")!
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
-            if response != nil {
-                self.wifiAuth = true
-                print("Wifi Authorized")
-            }
-        })
-        task.resume()
+    func requestWifiAuth() -> Void {
+        LocalNetworkAuthorization().triggerLocalNetworkPrivacyAlert()
+        wifiAuth = true //This just assumes the user agrees. Apple does not yet have API to tell if this permission is granted....oh well.
     }
     
     func getSettingsColor (title: String) -> Color {

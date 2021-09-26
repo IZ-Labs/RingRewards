@@ -32,7 +32,7 @@ struct RangeChoiceView: View {
                     .padding(5)
                 if sizeCategory < ContentSizeCategory.extraLarge {
                     HStack{
-                        Text("Low-end Cutoff")
+                        Text("First Reward at:")
                             .font(.callout)
                             .fontWeight(.semibold)
                             .padding(.all, 2.0)
@@ -44,7 +44,7 @@ struct RangeChoiceView: View {
                     }
                     .padding(.vertical, 8)
                     HStack{
-                        Text("High-end Cutoff")
+                        Text("Final Reward at:")
                             .font(.callout)
                             .fontWeight(.semibold)
                             .padding(.all, 2.0)

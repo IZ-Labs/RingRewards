@@ -27,20 +27,36 @@ struct SummaryView: View {
                         Text("Currently: ")
                             .font(.title3)
                             .fontWeight(.semibold)
-                        Text("\(String(format: "%.1f", settings.getPercent())) %")
-                            .foregroundColor(settings.goalColor)
-                            .font(.title3)
-                            .fontWeight(.semibold)
+                        if settings.getPercent().isNaN {
+                            Text("N/A. Approve health access")
+                                .foregroundColor(settings.goalColor)
+                                .font(.body)
+                                .fontWeight(.semibold)
+                                .onAppear(perform: {settings.requestHKAuth()})
+                        } else {
+                            Text("\(String(format: "%.1f", settings.getPercent())) %")
+                                .foregroundColor(settings.goalColor)
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                        }
                     })
                 } else {
                     VStack(spacing: 0.1, content: {
                         Text("Currently: ")
                             .font(.title3)
                             .fontWeight(.semibold)
-                        Text("\(String(format: "%.1f", settings.getPercent())) %")
-                            .foregroundColor(settings.goalColor)
-                            .font(.title3)
-                            .fontWeight(.semibold)
+                        if settings.getPercent().isNaN {
+                            Text("N/A. Approve Health Access")
+                                .foregroundColor(settings.goalColor)
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .onAppear(perform: {settings.requestHKAuth()})
+                        } else {
+                            Text("\(String(format: "%.1f", settings.getPercent())) %")
+                                .foregroundColor(settings.goalColor)
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                        }
                     })
                 }
             }.padding(25)

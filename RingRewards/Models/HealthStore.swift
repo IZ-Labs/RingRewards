@@ -47,17 +47,22 @@ class HealthStore {
                 print("summary sent")
             } else {
                 //VALUES FOR TESTING
-                let recentSummary = HKActivitySummary()
-                recentSummary.activeEnergyBurned = HKQuantity(unit: HKUnit.largeCalorie(), doubleValue: 450)
-                recentSummary.activeEnergyBurnedGoal = HKQuantity(unit: HKUnit.largeCalorie(), doubleValue: 600)
-                recentSummary.appleExerciseTime = HKQuantity(unit: HKUnit.minute(), doubleValue: 35)
-                recentSummary.appleExerciseTimeGoal = HKQuantity(unit: HKUnit.minute(), doubleValue: 60)
-                recentSummary.appleStandHours = HKQuantity(unit: HKUnit.count(), doubleValue: 8)
-                recentSummary.appleStandHoursGoal = HKQuantity(unit: HKUnit.count(), doubleValue: 12)
+                //                let recentSummary = HKActivitySummary()
+                //                recentSummary.activeEnergyBurned = HKQuantity(unit: HKUnit.largeCalorie(), doubleValue: 450)
+                //                recentSummary.activeEnergyBurnedGoal = HKQuantity(unit: HKUnit.largeCalorie(), doubleValue: 600)
+                //                recentSummary.appleExerciseTime = HKQuantity(unit: HKUnit.minute(), doubleValue: 35)
+                //                recentSummary.appleExerciseTimeGoal = HKQuantity(unit: HKUnit.minute(), doubleValue: 60)
+                //                recentSummary.appleStandHours = HKQuantity(unit: HKUnit.count(), doubleValue: 8)
+                //                recentSummary.appleStandHoursGoal = HKQuantity(unit: HKUnit.count(), doubleValue: 12)
+                //                DispatchQueue.main.async {
+                //                    completion(recentSummary)
+                //                }
+                //                print("testing values summary sent")
+                
                 DispatchQueue.main.async {
-                    completion(recentSummary)
+                    let nilSummary = HKActivitySummary()
+                    completion(nilSummary)
                 }
-                print("testing values summary sent")
             }
         }
         healthStore?.execute(query)

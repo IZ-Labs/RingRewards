@@ -15,29 +15,32 @@ struct HomeView: View {
         TabView(){
             DispenserView()
                 .tabItem {
-                Image(systemName: "hare.fill")
-                Text("Dispenser")
+                    Label("Dispenser", systemImage: "hare.fill")
                 }
             
             ChanceView()
                 .tabItem {
-                Image(systemName: "die.face.3.fill")
-                Text("Chance")
+                    Label("Chance", systemImage: "die.face.3.fill")
                 }
             
             SettingsView()
                 .tabItem {
-                Image(systemName: "gearshape.fill")
-                Text("Settings")
+                    Label("Settings", systemImage: "gearshape.fill")
                 }
             
-//            resetTestView()
-//                .tabItem {
-//                Image(systemName: "pencil.and.outline")
-//                Text("Debugging")
-//                }
+            //            resetTestView()
+            //                .tabItem {
+            //                Image(systemName: "pencil.and.outline")
+            //                Text("Debugging")
+            //                }
         }
         .coordinateSpace(name: "pullToRefresh")
+        .onAppear {
+            if #available(iOS 15.0, *) {
+                let appearance = UITabBarAppearance()
+                UITabBar.appearance().scrollEdgeAppearance = appearance
+            }
+        }
     }
 }
 
