@@ -11,7 +11,6 @@ import HealthKit
 struct CandyControlView: View {
     @EnvironmentObject var settings: SettingsViewModel
     @EnvironmentObject var spinTracker: SpinViewModel
-    @State private var hasClicked: Bool = false
     @Environment(\.sizeCategory) var sizeCategory
     @ScaledMetric var scaleSize: CGFloat = 1
     
@@ -57,7 +56,6 @@ struct CandyControlView: View {
                     Button(action: {
                         spinTracker.spin(spins: 1, settings: settings)
                         spinTracker.refreshTasks(settings: settings)
-                        hasClicked.toggle()
                     }, label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)

@@ -48,7 +48,6 @@ class SpinViewModel: ObservableObject {
     
     func refreshTasks(settings: SettingsViewModel) {
         print("Daily total reset: \(resetIfRequired())")
-        settings.updateRings()
         spinCalc(settings: settings)
     }
     
@@ -86,6 +85,7 @@ class SpinViewModel: ObservableObject {
     }
     
     func spinCalc(settings: SettingsViewModel) {
+        settings.updateRings()
         let levels = (settings.highBar - settings.lowBar) / 3;
         let percent = settings.getPercent()
         let lowGoal = settings.lowBar
