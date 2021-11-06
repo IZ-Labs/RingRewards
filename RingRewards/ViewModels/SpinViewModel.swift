@@ -52,9 +52,15 @@ class SpinViewModel: ObservableObject {
     }
     
     func resetIfRequired() -> Bool {
-        if let diff = Calendar.current.dateComponents([.hour], from: dailyResetTime, to: Date()).hour, diff >= 24 {
+        // diff check set to 36 hours to provide extra time to redeem rewards earned the previous day. Users had complained.
+        let diff = Calendar.current.dateComponents([.hour], from: dailyResetTime, to: Date()).hour!
+        
+        if diff >= 36 {
             resetDailyValues()
             return true
+        } else if diff >= 24 {
+            didPlayChance = false
+            return false
         } else {
             return false
         }

@@ -10,7 +10,7 @@ import SwiftUI
 struct PullToRefresh: View {
     var coordinateSpaceName: String
     var onRefresh: () -> Void
-    @ScaledMetric var topPadding: CGFloat = -65
+    @ScaledMetric var topPadding: CGFloat = -68
     
     @State var needRefresh: Bool = false
     

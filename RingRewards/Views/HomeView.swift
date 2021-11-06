@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var settings : SettingsViewModel
     @EnvironmentObject var spinTracker : SpinViewModel
+    @ObservedObject var notificationManager = LocalNotificationManager()
     
     var body: some View {
         TabView(){
@@ -27,12 +28,11 @@ struct HomeView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")
                 }
-            
-            //            resetTestView()
-            //                .tabItem {
-            //                Image(systemName: "pencil.and.outline")
-            //                Text("Debugging")
-            //                }
+//                        resetTestView()
+//                            .tabItem {
+//                            Image(systemName: "pencil.and.outline")
+//                            Text("Debugging")
+//                            }
         }
         .coordinateSpace(name: "pullToRefresh")
         .onAppear {
@@ -40,6 +40,8 @@ struct HomeView: View {
                 let appearance = UITabBarAppearance()
                 UITabBar.appearance().scrollEdgeAppearance = appearance
             }
+            self.notificationManager.sendDailyNotification(title: "Good Evening", subtitle: "Have you been moving?", body: "Check the app to see if you've earned any rewards yet!", reminderTime: 20, notificationID: "morningReminder")
+            self.notificationManager.sendDailyNotification(title: "Good Morning", subtitle: nil, body: "Your rewards from yesterday are expiring in 1 hour. Check the app to redeem!", reminderTime: 11, notificationID: "eveningReminder")
         }
     }
 }

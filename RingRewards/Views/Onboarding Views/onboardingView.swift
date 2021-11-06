@@ -33,7 +33,8 @@ struct onboardingView: View {
                 
                 onboardingItemView(instructions: "We need access to your activity data in order dispense your rewards.", image: "heart.text.square", buttonText: "Authorize", fillColor: .red, action: { settings.requestHKAuth() }, isAuthorized: $settings.HKAuth)
                 onboardingItemView(instructions: "We need to access your local network in order to communicate with the dispenser.", image: "wifi", buttonText: "Authorize", fillColor: .blue, action: { settings.requestWifiAuth() }, isAuthorized: $settings.wifiAuth)
-                onboardingItemView(instructions: "You'll need to enter some inital settings in order to use the app. Click below to begin", image: "gear", buttonText: "Begin", fillColor: .gray, action: { settingsButtonClicked = true }, isAuthorized: $settings.settingsInitalized)
+                onboardingItemView(instructions: "Please enable notifications to allow for reminders when your rewards are about to expire", image: "hourglass", buttonText: "Authorize", fillColor: .secondary, action: { settings.requestNotificationAuth() }, isAuthorized: $settings.notificationsRequested)
+                onboardingItemView(instructions: "You'll need to enter some inital settings in order to use the app. Click below to begin", image: "gear", buttonText: "Begin", fillColor: .secondary, action: { settingsButtonClicked = true }, isAuthorized: $settings.settingsInitalized)
                 
                 Spacer(minLength: 50)
                 

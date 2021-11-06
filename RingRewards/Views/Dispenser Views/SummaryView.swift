@@ -28,7 +28,7 @@ struct SummaryView: View {
                             .font(.title3)
                             .fontWeight(.semibold)
                         if settings.getPercent().isNaN {
-                            Text("N/A. Approve health access")
+                            Text("N/A. No activity data")
                                 .foregroundColor(settings.goalColor)
                                 .font(.body)
                                 .fontWeight(.semibold)

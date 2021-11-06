@@ -70,6 +70,15 @@ class SettingsViewModel: ObservableObject {
         }
     }
     
+    var notificationsRequested: Bool {
+        get { settings.notificationsRequested }
+        set { settings.notificationsRequested = newValue
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
+        }
+    }
+    
     var settingsInitalized: Bool {
         get { settings.settingsInitalized }
         set { settings.settingsInitalized = newValue
@@ -107,6 +116,11 @@ class SettingsViewModel: ObservableObject {
     func requestWifiAuth() -> Void {
         LocalNetworkAuthorization().triggerLocalNetworkPrivacyAlert()
         wifiAuth = true //This just assumes the user agrees. Apple does not yet have API to tell if this permission is granted....oh well.
+    }
+    
+    func requestNotificationAuth() -> Void {
+        LocalNotificationManager().triggerPermissions()
+        notificationsRequested = true
     }
     
     func getSettingsColor (title: String) -> Color {

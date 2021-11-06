@@ -46,6 +46,12 @@ class SettingsModel {
         }
     }
     
+    @AppStorage("notificationsRequested") var notificationsRequested: Bool = false {
+        didSet {
+            UserDefaults.standard.set(notificationsRequested, forKey: "notificationsRequested")
+        }
+    }
+    
     @AppStorage("settingsInitalized") var settingsInitalized: Bool = false {
         didSet {
             UserDefaults.standard.set(settingsInitalized, forKey: "settingsInitalized")
@@ -66,6 +72,7 @@ class SettingsModel {
             "ipVal" : "192.168.0.108",
             "HKAuth" : false,
             "wifiAuth" : false,
+            "notificationsRequested" : false,
             "settingsInitalized" : false,
             "hasOnboarded" : false
         ])
@@ -75,6 +82,7 @@ class SettingsModel {
         ipVal = UserDefaults.standard.string(forKey: "ipVal")!
         HKAuth = UserDefaults.standard.bool(forKey: "HKAuth")
         wifiAuth = UserDefaults.standard.bool(forKey: "wifiAuth")
+        notificationsRequested = UserDefaults.standard.bool(forKey: "notificationsRequested")
         settingsInitalized = UserDefaults.standard.bool(forKey: "settingsInitalized")
         hasOnboarded = UserDefaults.standard.bool(forKey: "hasOnboarded")
     }

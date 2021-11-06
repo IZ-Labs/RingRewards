@@ -10,12 +10,11 @@ import SwiftUI
 struct resetTestView: View {
     @EnvironmentObject var spinTracker: SpinViewModel
     @EnvironmentObject var settings: SettingsViewModel
-    
+    @ObservedObject var notificationManager = LocalNotificationManager()
     var body: some View {
         VStack{
             Text("Debugging Controls")
                 .font(.largeTitle)
-                
             Spacer()
             Text("Spins control")
                 .font(.title3)
@@ -48,10 +47,10 @@ struct resetTestView: View {
             Text("The number of avaliable spins was last reset\n \(spinTracker.dailyResetTime).")
             Spacer()
             Text("The current diff value is \(calcDiff())")
-            Spacer()
         }
         .onAppear(perform: { spinTracker.spinCalc(settings: settings) })
     }
+    
     func calcDiff() -> Int {
         print("debug diff calculated")
         return Calendar.current.dateComponents([.hour], from: spinTracker.dailyResetTime, to: Date()).hour ?? 80085

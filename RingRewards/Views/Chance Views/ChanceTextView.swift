@@ -14,9 +14,9 @@ struct ChanceTextView: View {
     @Environment(\.sizeCategory) var sizeCategory
     @ScaledMetric var scaleSize: CGFloat = 1
     
-    @State var maxValue = 50
+    @State var maxValue = 20
     private var generator = SystemRandomNumberGenerator()
-    private var randNum = (1...50).randomElement()
+    private var randNum = (1...20).randomElement()
     @State private var textIn = ""
     @State private var guess = 0.0
     @State private var hasGuessed = false
