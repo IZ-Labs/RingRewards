@@ -6,7 +6,9 @@ This is Ring Rewards, an IOS app that syncs your activity data using Apple's Hea
 <p>This is the culmination of about a project I've been working on in the background (very much on and off again) for over a year. It started as a 1 week design sprint during Mark Rober's Creative Engineering class on Studio, but ended up being a project that inspired me to learn how to make a PCB, how to program and release an IOS app with Swift and much much more.&nbsp;</p>
 <p>The IOS app to accompany this device is available on the <a href="https://apps.apple.com/us/app/ring-rewards/id1584007591" target="_blank">App Store worldwide</a>, and the PCB Gerber files along with Arduino code are available on the linked <a href="https://github.com/CaptainZ1/RingRewards" target="_blank">GitHub repo.</a></p>
 <p>The full video describing the design and build process is available here:</p>
-<p><strong>INSERT VIDEO LINK HERE ONCE AVAILABLE</strong></p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Qt_wYOnrX2E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <p>The dispenser itself was designed with peanut covered MnMs in mind (who's non-uniform proportions really messed with my head for a while when focusing on one idea…), but the design should be <i>relatively</i> easily adapted to any similar sized candy.&nbsp;</p>
 <p>In addition, I would encourage anyone who's interested in a fun project to try and design their own candy dispenser mechanics to go along with my app. It's a great intro project and will be a fun piece to have around.</p>
 
